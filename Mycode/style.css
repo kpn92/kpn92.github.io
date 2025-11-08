@@ -1,0 +1,427 @@
+:root {
+  --bg:#0b0f1a;       /* Βασικό background (dark theme) */
+  --panel:#0f1728;    /* Background για panels/cards */
+  --muted:#9fb0d1;    /* Δευτερεύον κείμενο (πιο αχνό) */
+  --text:#e8eefc;     /* Κύριο χρώμα κειμένου */
+  --brand:#0b5cff;    /* Primary brand color (μπλε) */
+  --brand2:#6ab7ff;   /* Secondary brand color (ανοιχτότερο μπλε) */
+  --ring:#2b88ff;     /* Accent (π.χ. hover/borders) */
+  --radius:18px;        /* Border radius για στρογγυλοποίηση */
+  --shadow:0 20px 40px rgba(0,0,0,.35); /* Σκιά */
+}
+
+/* Light theme */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:#f6f8fc;     /* βασικό background (πολύ ανοιχτό γκρι-άσπρο) */
+    --panel:#ffffff;  /* background των καρτών/panels (καθαρό άσπρο) */
+    --text:#0b1324;   /* κύριο κείμενο (πολύ σκούρο μπλε/μαύρο για καλή αντίθεση) */
+    --muted:#51607c;  /* δευτερεύον κείμενο (γκρι-μπλε, πιο απαλό) */
+  }
+}
+
+body {
+  margin:0;
+  background: url("images/site.png") no-repeat center center fixed;
+  background-size: cover;  /* η εικόνα πιάνει όλη την οθόνη */
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);      /* βασικό χρώμα κειμένου */
+  letter-spacing: .2px;    /* λίγο μεγαλύτερα διαστήματα ανάμεσα στα γράμματα */
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;                           /* top:0, right:0, bottom:0, left:0 */
+  background: rgba(0, 0, 0, 0.55);  /* ημιδιάφανο μαύρο layer */
+  backdrop-filter: blur(2px);         /* κάνει blur στο background */
+  z-index: -1;                        /* το βάζει κάτω από το περιεχόμενο */
+}
+
+.brand {
+  display: flex;           /* το κάνει flex container */
+  gap: .8rem;              /* κενό ανάμεσα στα items μέσα στο .brand */
+  align-items: center;     /* κάθετη στοίχιση στο κέντρο */
+  font-weight: 800;        /* πολύ έντονη γραμματοσειρά (extra bold) */
+}
+
+.container{
+  width:min(1200px,92%);
+  margin:0 auto
+}
+
+/* Skills Title */
+.panel-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem;
+  border-bottom:1px solid color-mix(in oklab, var(--panel) 75%, transparent)
+}
+.panel-title h2{
+  font-size:1.75rem;
+  margin-bottom: 0rem;
+  margin-top: .35rem;    
+}
+
+/*.about{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;padding:1rem
+*/
+
+/* Skills Details */
+.skills{
+   padding:1rem
+}
+.skill{
+  margin:1rem 0
+}
+.skill .row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:.35rem;
+  font-weight:600
+}
+
+.skill .pct{
+  color:var(--muted);
+  font-variant-numeric:tabular-nums
+}
+
+.skill .bar{
+  height:12px;
+  background:color-mix(in oklab, var(--panel) 70%, transparent);
+  border-radius:999px;
+  overflow:hidden;
+  border:1px solid color-mix(in oklab, var(--panel) 85%, transparent)
+}
+.skill .fill{
+  width:0%; height:100%;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  box-shadow: inset 0 0 8px rgba(0,0,0,.15);
+  transition: width 1.2s ease;
+  border-radius:999px;
+}
+
+/* Η ενιαία κάρτα Δεξιά στήλη */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr auto;   
+  gap:1.5rem;                       
+  padding:2rem;
+  background: color-mix(in oklab, var(--panel) 92%, transparent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.hero-img{
+  justify-self:end;  
+  align-self:start; 
+
+}
+
+.hero-img img{
+  display:block;
+  width:240px;        
+  height:auto;
+  border-radius:var(--radius);
+  object-fit:cover;
+  border:none;       
+}
+
+@media (max-width:980px){
+  .hero{ grid-template-columns:1fr; }
+  .hero-img{ justify-self:center; }
+  .hero-img img{ width:200px; }
+}
+
+/* Metrics under the Image */
+.hero-metrics{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding-top: 1rem;
+  justify-content: center;   
+  gap: 1.25rem 1.75rem;      
+  text-align: center;
+}
+
+.metric b {
+  padding:1rem;
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.7rem;   /* περίπου 40px */
+  line-height: 1.2;
+  color: var(--text);
+  font-weight: 900;    /* μέγιστο bold */
+  text-align:center
+}
+
+.metric span {
+  display: block;
+  margin-top: .25rem;
+  font-size: .92rem;   /* ~19px */
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.metric:hover b {
+  color: var(--brand2);
+  transform: scale(1.05);
+  transition: .2s ease;
+}
+
+
+/* Responsive: σε μικρές οθόνες να στοιχίζονται 2-και-1 */
+@media (max-width: 980px){
+  .hero-metrics{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: .75rem 1rem;
+  }
+}
+@media (max-width: 560px){
+  .hero-metrics{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+@media (max-width: 380px){
+  .hero-metrics{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* View Project Button */
+.btn2 {
+  display: inline-block;   /* στην αρχή inline-block */
+  background: linear-gradient(135deg,var(--brand),var(--brand2)); /* gradient μπλε χρώμα */
+  color: #fff;            
+  padding: .68rem 1.1rem;  /* εσωτερικά περιθώρια (ύψος/πλάτος κουμπιού) */
+  border-radius: 999px;    /* πλήρως στρογγυλεμένο (σαν pill) */
+  box-shadow: var(--shadow); /* σκιά από τη μεταβλητή σου */
+  border: 0;               /* χωρίς περίγραμμα */
+  cursor: pointer;         /* δείχνει το χέρι όταν περνάς από πάνω */
+  display: block;          /* override → το κάνει block για να πιάνει όλο το πλάτος container */
+  margin-top: 2rem;        /* κενό από πάνω */
+  text-align: center;      /* κείμενο στο κέντρο */
+}
+
+.btn2.ghost {
+  background: transparent;   /* διαφανές φόντο */
+  color: var(--text);        /* κείμενο στο βασικό χρώμα */
+  border: 1px solid color-mix(in oklab, var(--panel) 70%, transparent); /* λεπτό περίγραμμα */
+}
+
+
+.btn{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;padding:.68rem 1.1rem;border-radius:999px;
+  box-shadow:var(--shadow);
+  border:0;
+  cursor:pointer
+}
+.btn.ghost{background:transparent;
+  color:var(--text);
+  border:1px solid color-mix(in oklab, var(--panel) 70%, transparent)}
+
+
+/* Force themes via [data-theme] */
+html[data-theme="light"] {
+  --bg:#f6f8fc;      /* φόντο πολύ ανοιχτό */
+  --panel:#ffffff;   /* κάρτες άσπρες */
+  --text:#0b1324;    /* σκούρο κείμενο */
+  --muted:#51607c;   /* πιο απαλό κείμενο */
+}
+
+html[data-theme="dark"] {
+  --bg:#0b0f1a;      /* φόντο πολύ σκούρο */
+  --panel:#0f1728;   /* κάρτες σκούρες */
+  --text:#e8eefc;    /* ανοιχτό κείμενο */
+  --muted:#9fb0d1;   /* απαλό γκρι-μπλε κείμενο */
+}
+
+*{box-sizing:border-box}
+
+/* Service Section */
+/* Κενό ανάμεσα σε κάρτες Projects & Services */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem;   /* μεγαλώνουμε λίγο το κενό */
+}
+
+section {
+  padding: 2rem 0;
+  scroll-margin-top: 80px; /* ύψος navbar */
+  padding-left: 3rem;   
+  padding-right: 3rem; 
+}
+
+.service{
+  padding:1.2rem
+}
+.service h4{
+  margin:.2rem 0
+}
+.service p{
+  color:var(--muted)}
+
+/* Κενό ανάμεσα στις μεγάλες ενότητες (π.χ. Projects, Services, About) */
+section.card + section.card {
+  margin-top: 2rem; /* “ανάσα” μεταξύ sections */
+}
+
+/* Αν θες extra αναπνοή ανάμεσα στις project κάρτες */
+.proj {
+  margin-bottom: 0.5rem;
+}
+
+.col-3{
+  grid-column:span 3
+}
+
+.col-4{
+  grid-column:span 4
+}
+.col-6{
+  grid-column:span 6
+}
+.col-12{
+  grid-column:span 12
+}
+.pad{
+  padding:1rem
+}
+
+.service.card {
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.3s ease;
+}
+
+.service.card:hover {
+  background: color-mix(in oklab, var(--panel) 85%, var(--brand) 15%); 
+  transform: scale(1.1);  /* μικρό ζουμ */
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45); /* πιο έντονη σκιά */
+  cursor: pointer;          /* δείχνει ότι είναι interactive */
+}
+
+/* About Section */
+.about{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;padding:1rem
+}
+.about p{
+  color:var(--muted)
+}
+
+
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+
+
+
+.blur-nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(10px);
+  background:color-mix(in oklab, var(--bg) 75%, transparent);
+  border-bottom:1px solid color-mix(in oklab, var(--panel) 70%, transparent)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
+
+.logo{width:39px;height:39px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow)}
+nav a{margin-left:2rem;font-weight:600}
+#theme-toggle {
+  margin-left: 2rem; 
+}
+#contact small {
+  font-size: 1rem;   /* ή 1.2rem, ό,τι μέγεθος θες */
+  font-weight: 500;  /* αν θες λίγο πιο bold */
+}
+
+.card{background:color-mix(in oklab, var(--panel) 92%, transparent);
+  border:1px solid color-mix(in oklab, var(--panel) 75%, transparent);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow)}
+
+.left{padding:2rem}
+.eyebrow{color:var(--brand2);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+
+h1{margin:.35rem 0 1rem;font-size:clamp(2rem,2rem + 1.8vw,3.2rem);line-height:1.1}
+.subtitle{color:var(--muted)}
+
+.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.6rem}
+
+.badge{background:#0d1220;color:#cfe1ff;padding:.34rem .66rem;border:1px solid #1b2741;border-radius:999px;font-size:.83rem}
+.right{padding:1.2rem}
+
+
+.proj{position:relative;padding:1rem;transition:transform .25s ease, box-shadow .25s ease}
+.proj h3{margin:.2rem 0}
+.proj p{margin:.4rem 0;color:var(--muted)}
+.proj:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{font-size:.78rem;padding:.22rem .55rem;border-radius:999px;border:1px dashed #304162;color:#b9c8e8}
+
+/* Contact Section */
+.contact {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr; /* φόρμα - links */
+  gap: 1rem;
+}
+
+form {
+  display: grid;
+  gap: .8rem;
+  padding: 1rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: .85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #223355;
+  background: #0e1526;       /* default (dark look) */
+  color: var(--text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6b7a99;
+}
+
+/* ---------- THEME OVERRIDES ---------- */
+
+/* Dark Theme */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea {
+  background: #0e1526;
+  color: var(--text);
+  border: 1px solid #223355;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #6b7a99;
+}
+
+/* Light Theme */
+html[data-theme="light"] input,
+html[data-theme="light"] textarea {
+  background: #ffffff;
+  color: #0b1324;
+  border: 1px solid #c9d3e0;
+}
+
+html[data-theme="light"] input::placeholder,
+html[data-theme="light"] textarea::placeholder {
+  color: #8a97ac;
+}
+
+/* Footer Section */
+footer{color:var(--muted);padding:2rem 0;text-align:center}
+
+/* simple reveal */
+[data-reveal]{opacity:0;transform:translateY(12px);transition:.6s ease}
+[data-reveal].visible{opacity:1;transform:none}
+
