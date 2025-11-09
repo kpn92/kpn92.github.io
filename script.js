@@ -92,7 +92,7 @@ const skillsObserver = new IntersectionObserver(entries => {
     
     // Animate with easing
     let start = 0;
-    const duration = 1500;
+    const duration = 200; // Εδώ καθορίζεται η ταχύτητα 
     const startTime = performance.now();
     
     function animate(currentTime) {
@@ -190,3 +190,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// === Footer banner toggle ===
+const blueBanner = document.querySelector('.banner-blue');
+const whiteBanner = document.querySelector('.banner-white');
+
+function updateFooterBanner() {
+  const theme = root.getAttribute('data-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = theme === 'dark' || (theme === 'auto' && prefersDark);
+
+  if (blueBanner && whiteBanner) {
+    blueBanner.style.display = isDark ? 'inline' : 'none';
+    whiteBanner.style.display = isDark ? 'none' : 'inline';
+  }
+}
+
+btn.addEventListener('click', () => setTimeout(updateFooterBanner, 150));
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFooterBanner);
+document.addEventListener('DOMContentLoaded', updateFooterBanner);

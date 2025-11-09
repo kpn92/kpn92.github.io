@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Το Portfolio Μου</title>
+    <style>
+        /* Basic Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        /* Επικόλληση περιεχομένου για να μην καλύπτεται από το fixed header */
+        html {
+            scroll-padding-top: 80px;
+        }
+        
+        /* Intro */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #6e48aa;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #9d50bb;
+        }
+        
+        /* Σχετικά με εμένα */
+        .about {
+            padding: 80px 0;
+            background: #f4f4f4;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #6e48aa;
+            margin: 10px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Υπηρεσίες */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .service-card i {
+            font-size: 2.5rem;
+            color: #6e48aa;
+            margin-bottom: 1rem;
+        }
+        
+        /* Επικοινωνία */
+        .contact {
+            padding: 80px 0;
+            background: #f4f4f4;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Υποσέλιδο */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .nav-links {
+                display: none; /* Σε πραγματική ιστοσελίδα θα προσθέταμε ένα hamburger menu */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Επικεφαλίδα -->
+    <header>
+        <nav class="container">
+            <div class="logo">Το Brand Μου</div>
+            <ul class="nav-links">
+                <li><a href="#home">Αρχική</a></li>
+                <li><a href="#about">Σχετικά</a></li>
+                <li><a href="#services">Υπηρεσίες</a></li>
+                <li><a href="#contact">Επικοινωνία</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Εισαγωγή -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Γεια, είμαι ο [Το Όνομα Σου]</h1>
+            <p>Ειδικεύομαι στη δημιουργία μοναδικών digital εμπειριών που ενσωματώνουν αισθητική και λειτουργικότητα.</p>
+            <a href="#contact" class="btn">Επικοινωνήστε μαζί μου</a>
+        </div>
+    </section>
+
+    <!-- Σχετικά με εμένα -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Σχετικά Μ' Εμένα</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Ποιος είμαι;</h3>
+                    <p>Είμαι ένας passionate [ειδικότητά σου] με [αριθμός] χρόνια εμπειρίας στη δημιουργία πρωτότυπων λύσεων. Αγαπώ να μετατρέπω πολύπλοκες ιδέες σε απλές, όμορφες και λειτουργικές σχεδιάσεις.</p>
+                    <p>Η φιλοσοφία μου βασίζεται στην καινοτομία, την προσοχή στη λεπτομέρεια και την καταλληλότητα για τον σκοπό. Πιστεύω ότι η καλή σχεδίαση είναι αόρατη - λειτουργεί τόσο καλά που ο χρήστης δεν την παρατηρεί.</p>
+                    <p>Όταν δεν δουλεύω, μπορείτε να με βρείτε να [προσωπικό ενδιαφέρον 1] ή να [προσωπικό ενδιαφέρον 2].</p>
+                </div>
+                <div class="about-image">
+                    <!-- Αντικατέστησε το src με τη δική σου φωτογραφία -->
+                    <img src="https://via.placeholder.com/400x400" alt="[Το Όνομα Σου]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Υπηρεσίες -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Οι Υπηρεσίες Μου</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Web Design</h3>
+                    <p>Σύγχρονος και λειτουργικός σχεδιασμός ιστοσελίδων που προσελκύουν και κρατούν το ενδιαφέρον του κοινού σας.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ανάπτυξη Εφαρμογών</h3>
+                    <p>Δημιουργία custom εφαρμογών που ανταποκρίνονται στις ανάγκες της επιχείρησής σας και των πελατών σας.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ψηφιακό Μάρκετινγκ</h3>
+                    <p>Στρατηγικές για την αύξηση της online παρουσίας σας και την προσέλκυση νέων πελατών.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Επικοινωνία -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Επικοινωνία</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Ονοματεπώνυμο</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Μήνυμα</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Αποστολή Μηνύματος</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Υποσέλιδο -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 [Το Όνομα Σου]. Όλα τα δικαιώματα διατηρούνται.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Απλή λειτουργία για το contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Σας ευχαριστούμε για το μήνυμά σας! Θα επικοινωνήσουμε σύντομα μαζί σας.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

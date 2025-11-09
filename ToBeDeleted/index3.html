@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Konstantinos Panousis — Database Engineer</title>
+  <meta name="description" content="KPN — Database Engineer & SQL Specialist. Performance tuning, ETL, DWH/BI. Portfolio & contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0b5cff" />
+  <style>
+    :root{
+      --bg:#0b0f1a; --panel:#0f1728; --muted:#9fb0d1; --text:#e8eefc; --brand:#0b5cff; --brand2:#6ab7ff; --ring:#2b88ff; --radius:18px; --shadow:0 20px 40px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){:root{--bg:#f6f8fc;--panel:#ffffff;--text:#0b1324;--muted:#51607c}}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;color:var(--text);background:
+      radial-gradient(900px 600px at 10% -10%, rgba(11,92,255,.20), transparent 40%),
+      radial-gradient(900px 600px at 120% 10%, rgba(122,183,255,.15), transparent 40%), var(--bg);
+      letter-spacing:.2px}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1200px,92%);margin:0 auto}
+    /* NAV */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(160%) blur(10px);background:color-mix(in oklab, var(--bg) 75%, transparent);border-bottom:1px solid color-mix(in oklab, var(--panel) 70%, transparent)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0}
+    .brand{display:flex;gap:.8rem;align-items:center;font-weight:800}
+    .logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#fff;box-shadow:var(--shadow)}
+    .nav a{margin-left:1rem;font-weight:600}
+    .btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;padding:.68rem 1.1rem;border-radius:999px;box-shadow:var(--shadow)}
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:2rem;padding:3rem 0 2rem}
+    .card{background:color-mix(in oklab, var(--panel) 92%, transparent);border:1px solid color-mix(in oklab, var(--panel) 75%, transparent);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero .left{padding:2rem}
+    .eyebrow{color:var(--brand2);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+    h1{margin:.35rem 0 1rem;font-size:clamp(2rem,2rem + 1.8vw,3.2rem);line-height:1.1}
+    .subtitle{color:var(--muted)}
+    .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.6rem}
+    .badge{background:#0d1220;color:#cfe1ff;padding:.34rem .66rem;border:1px solid #1b2741;border-radius:999px;font-size:.83rem}
+    .hero .right{padding:1.2rem}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .metric{padding:1rem;text-align:center}
+    .metric b{font-size:1.6rem;display:block}
+    .metric span{color:var(--muted);font-size:.92rem}
+    /* SECTIONS */
+    section{padding:2rem 0}
+    .panel-title{display:flex;align-items:center;justify-content:space-between;padding:1rem;border-bottom:1px solid color-mix(in oklab, var(--panel) 75%, transparent)}
+    .panel-title h2{margin:0;font-size:1.25rem}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-12{grid-column:span 12}
+    /* PROJECT CARDS */
+    .proj{position:relative;padding:1rem;transition:transform .25s ease, box-shadow .25s ease}
+    .proj h3{margin:.2rem 0}
+    .proj p{margin:.4rem 0;color:var(--muted)}
+    .proj:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.35)}
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem}
+    .tag{font-size:.78rem;padding:.22rem .55rem;border-radius:999px;border:1px dashed #304162;color:#b9c8e8}
+    /* SERVICES */
+    .service{padding:1.2rem}
+    .service h4{margin:.2rem 0}
+    .service p{color:var(--muted)}
+    /* ABOUT */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem}
+    .about p{color:var(--muted)}
+    /* CONTACT */
+    .contact{display:grid;grid-template-columns:1.1fr .9fr;gap:1rem}
+    form{display:grid;gap:.8rem;padding:1rem}
+    input, textarea{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid #223355;background:#0e1526;color:var(--text)}
+    input::placeholder, textarea::placeholder{color:#6b7a99}
+    button.btn{justify-self:start;border:0;border-radius:12px;padding:.8rem 1.15rem;cursor:pointer}
+    footer{color:var(--muted);padding:2rem 0;text-align:center}
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .about,.contact{grid-template-columns:1fr}
+      .col-6,.col-4{grid-column:span 12}
+    }
+    /* Simple reveal */
+    [data-reveal]{opacity:0;transform:translateY(12px);transition:.6s ease}
+    [data-reveal].visible{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">KPN</div>
+        <div>Konstantinos Panousis<br><small style="color:var(--muted);font-weight:600">Database Engineer</small></div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a class="btn" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card left" data-reveal>
+        <div class="eyebrow">Performance • ETL • DWH/BI</div>
+        <h1>Build data you can trust. <br>Make decisions with confidence.</h1>
+        <p class="subtitle">Ειδικεύομαι σε SQL Server & Oracle: σχεδίαση data models, optimization σε queries/indexes, ETL pipelines και BI dashboards με καθαρά KPIs.</p>
+        <div class="badges">
+          <span class="badge">T‑SQL / PL‑SQL</span>
+          <span class="badge">Query Plans & Indexes</span>
+          <span class="badge">ETL • SSIS • dbt</span>
+          <span class="badge">Star Schema • DAX</span>
+        </div>
+        <a class="btn" href="#projects">Δες έργα</a>
+      </div>
+      <aside class="right" data-reveal>
+        <div class="card metrics">
+          <div class="metric"><b>7+</b><span>Χρόνια με SQL</span></div>
+          <div class="metric"><b>3×</b><span>Speed‑ups σε SPs</span></div>
+          <div class="metric"><b>TB</b><span>ETL δεδομένων</span></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card" style="margin-top:1rem" data-reveal>
+      <div class="panel-title"><h2>Selected Projects</h2><a href="#">Full CV →</a></div>
+      <div class="grid" style="padding:1rem">
+        <article class="proj col-6 card">
+          <h3>Payments ETL & Promise Tracking</h3>
+          <p>Stored procedures για KEPT/BROKEN, refactor cursors σε set‑based, window functions, covering indexes.</p>
+          <div class="tags"><span class="tag">SQL Server 2022</span><span class="tag">ETL</span><span class="tag">Window Fn</span></div>
+        </article>
+        <article class="proj col-6 card">
+          <h3>BI Star Schema + KPIs</h3>
+          <p>Fact/Dim μοντέλα και Power BI dashboards για διοίκηση με SLA/KPI drilldowns.</p>
+          <div class="tags"><span class="tag">DWH</span><span class="tag">Power BI</span><span class="tag">Dimensional</span></div>
+        </article>
+        <article class="proj col-6 card">
+          <h3>Oracle 23ai Performance Lab</h3>
+          <p>FREEPDB1 lab με roles/grants, AWR/ASH αναλύσεις και index strategies για batch.</p>
+          <div class="tags"><span class="tag">Oracle 23ai</span><span class="tag">PL/SQL</span><span class="tag">AWR/ASH</span></div>
+        </article>
+        <article class="proj col-6 card">
+          <h3>SalesForce Export — Batched SP</h3>
+          <p>Offset batching + temp reuse → ~3× ταχύτερη εκτέλεση και λιγότερο I/O.</p>
+          <div class="tags"><span class="tag">Stored Procs</span><span class="tag">Index Tuning</span><span class="tag">I/O Reduction</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="card" style="margin-top:1rem" data-reveal>
+      <div class="panel-title"><h2>Services</h2></div>
+      <div class="grid" style="padding:1rem">
+        <div class="service col-4 card">
+          <h4>Performance Tuning</h4>
+          <p>Execution plans, indexes, partitioning, tempdb strategies, parameter sniffing fixes.</p>
+        </div>
+        <div class="service col-4 card">
+          <h4>ETL & Data Quality</h4>
+          <p>SSIS/dbt workflows, data contracts, validation rules, monitoring & alerts.</p>
+        </div>
+        <div class="service col-4 card">
+          <h4>DWH & BI Enablement</h4>
+          <p>Star schema design, KPI definitions, Power BI dashboards και governance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="card" style="margin-top:1rem" data-reveal>
+      <div class="panel-title"><h2>About</h2></div>
+      <div class="about">
+        <div>
+          <h3>Who I am</h3>
+          <p>Database Engineer με background σε SQL Server & Oracle. Λύνω performance bottlenecks και χτίζω καθαρά data models που αντέχουν στο χρόνο.</p>
+          <p>Συνεργάζομαι άνετα με business teams για KPIs που μετράνε πραγματικά.</p>
+        </div>
+        <div>
+          <h3>Stack</h3>
+          <p>T‑SQL, PL/SQL, Execution Plans, Indexing, Partitioning, SSIS, dbt, Power BI, Dimensional Modeling, Git.</p>
+          <p>DevOps‑y: CI for SQL, reviewable migrations, scripted deployments.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card" style="margin-top:1rem" data-reveal>
+      <div class="panel-title"><h2>Contact</h2><small style="color:var(--muted)">Διαθέσιμος για freelance/contract</small></div>
+      <div class="contact">
+        <form onsubmit="sendEmail(event)">
+          <label><span>Ονοματεπώνυμο</span><input name="name" placeholder="Το όνομά σου" required></label>
+          <label><span>Email</span><input type="email" name="email" placeholder="you@example.com" required></label>
+          <label><span>Μήνυμα</span><textarea name="message" rows="5" placeholder="Πες μου για το project σου…" required></textarea></label>
+          <button class="btn" type="submit">Στείλε μήνυμα</button>
+        </form>
+        <div class="card" style="padding:1rem">
+          <h3>Σύνδεσμοι</h3>
+          <p><a href="mailto:kpn@example.com">kpn@example.com</a><br>
+          <a href="#">GitHub</a> • <a href="#">LinkedIn</a></p>
+          <h3>Περιοχές Εστίασης</h3>
+          <ul>
+            <li>Performance: plans, indexes, partitioning</li>
+            <li>ETL: quality, lineage, monitoring</li>
+            <li>BI: KPI modeling, storytelling</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Konstantinos Panousis • KPN • Athens, GR
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    function sendEmail(e){
+      e.preventDefault();
+      const f=new FormData(e.target);
+      const subject=encodeURIComponent('New inquiry from portfolio');
+      const body=encodeURIComponent(`Name: ${f.get('name')}
+Email: ${f.get('email')}
+
+${f.get('message')}`);
+      window.location.href=`mailto:kpn@example.com?subject=${subject}&body=${body}`;
+    }
+    // simple scroll reveal
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible')}})
+    },{threshold:.15});
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
