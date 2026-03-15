@@ -2,6 +2,9 @@
 <html lang="el" data-theme="auto">
 
 <head>
+  <script src="https://cdn.userway.org/widget.js" data-account="YOUR_ID"></script>  
+  <link rel="alternate" hreflang="el" href="el.html">
+
   <!--Important meta settings-->
   <!--Defines the character encoding for the document, ensuring correct display of text and symbols.-->
   <meta charset="utf-8" />
@@ -64,6 +67,33 @@
   <!--Structured data for SEO-->
 </head>
 
+<!--
+<div class="accessibility-widget">
+
+<button id="accessibility-toggle" aria-label="Accessibility options">
+♿
+</button>
+
+<div class="accessibility-panel" id="accessibility-panel">
+
+<h4>Accessibility</h4>
+
+<button onclick="increaseFont()">A+</button>
+<button onclick="decreaseFont()">A-</button>
+
+<button onclick="toggleContrast()">High Contrast</button>
+<button onclick="toggleGray()">Grayscale</button>
+
+<button onclick="toggleLinks()">Underline Links</button>
+<button onclick="toggleAnimations()">Pause Animations</button>
+
+</div> 
+
+</div>
+-->
+
+<script src="https://cdn.userway.org/widget.js" data-account="YOUR_ID"></script>
+
 <body>
 
   <header class="blur-nav">
@@ -81,6 +111,11 @@
         <a href="#About">About</a>
         <a href="#projects">Projects</a>
 
+        <div class="lang-switch">
+        <a class="active" href="index.html">EN</a>
+        <span>|</span>
+        <a href="el.html">GR</a>
+        </div>
         <!--
         <button id="theme-toggle" class="btn ghost theme-toggle" type="button" title="Toggle theme"
         
@@ -139,6 +174,7 @@
 
         <a class="btn" href="#contact">Contact</a>
       </nav>
+
     </div>
   </header>
 
@@ -230,7 +266,7 @@
 
         <div class="hero-metrics">
           <div class="metric">
-            <b data-target="4">0</b>
+            <b data-target="7">0</b>
             <span>Years Experience</span>
           </div>
         </div>
@@ -261,6 +297,10 @@
       </div>
     </section>
   
+
+
+
+    <!--
     <section id="services" class="card" data-reveal>
       <div class="panel-title">
         <h2>Services</h2>
@@ -296,13 +336,98 @@
         </div>
       </div>
     </section>
+    -->
 
+    
     <section id="projects" class="card" data-reveal>
       <div class="panel-title">
         <h2>Projects</h2>
       </div>
 
       <div class="grid pad">
+
+<article class="project-card col-4">
+
+  <div class="project-image">
+    <img src="assets/images/crm.png" alt="CRM Integration Project">
+  </div>
+
+  <div class="project-content">
+    <h3>Automated Flat File Integration to CRM</h3>
+
+    <p class="project-problem">
+      <strong>Problem:</strong> CRM system required automated import of customer data from multiple flat files.
+    </p>
+
+    <p class="project-solution">
+      <strong>Solution:</strong> Designed SQL Server stored procedures to parse, validate and transform data before inserting it into CRM tables.
+    </p>
+
+    <div class="tags">
+      <span class="tag">T-SQL</span>
+      <span class="tag">ETL</span>
+      <span class="tag">Stored Procedures</span>
+      <span class="tag">Data Integration</span>
+    </div>
+
+  </div>
+
+</article>
+<article class="project-card col-4">
+
+  <div class="project-image">
+    <img src="assets/images/wms.png" alt="CRM Integration Project">
+  </div>
+
+  <div class="project-content">
+    <h3>Automated Flat File Integration to CRM</h3>
+
+    <p class="project-problem">
+      <strong>Problem:</strong> CRM system required automated import of customer data from multiple flat files.
+    </p>
+
+    <p class="project-solution">
+      <strong>Solution:</strong> Designed SQL Server stored procedures to parse, validate and transform data before inserting it into CRM tables.
+    </p>
+
+    <div class="tags">
+      <span class="tag">T-SQL</span>
+      <span class="tag">ETL</span>
+      <span class="tag">Stored Procedures</span>
+      <span class="tag">Data Integration</span>
+    </div>
+
+  </div>
+
+</article>
+<article class="project-card col-4">
+
+  <div class="project-image">
+    <img src="assets/images/data-migration.png" alt="CRM Integration Project">
+  </div>
+
+  <div class="project-content">
+    <h3>Automated Flat File Integration to CRM</h3>
+
+    <p class="project-problem">
+      <strong>Problem:</strong> CRM system required automated import of customer data from multiple flat files.
+    </p>
+
+    <p class="project-solution">
+      <strong>Solution:</strong> Designed SQL Server stored procedures to parse, validate and transform data before inserting it into CRM tables.
+    </p>
+
+    <div class="tags">
+      <span class="tag">T-SQL</span>
+      <span class="tag">ETL</span>
+      <span class="tag">Stored Procedures</span>
+      <span class="tag">Data Integration</span>
+    </div>
+
+  </div>
+
+</article>
+        <!--
         <article class="proj col-6 card">
           <h3>Automated Flat File Integration to CRM</h3>
           <p>Designed SQL Server stored procedures to import customer data from flat files into the CRM. Implemented
@@ -344,13 +469,13 @@
             <span class="tag">Spatial dbs</span><span class="tag">PostgreSQL</span>
           </div>
         </article>
-      </div>
+      </div>-->
     </section>
 
     <section id="contact" class="card" data-reveal>
       <div class="panel-title">
         <h2>Contact</h2>
-        <small class="muted">Available for freelance and contract opportunities</small>
+        <!-- <small class="muted">Available for freelance and contract opportunities</small> -->
       </div>
 
       <div class="contact">

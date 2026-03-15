@@ -109,9 +109,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const counter = entry.target;
       const target = +counter.getAttribute("data-target");
       let current = 0;
-      const increment = target / 30; // 30 steps
-      const duration = 2000; // 2 seconds
-      const stepTime = duration / 30;
+      const increment = target / 20;
+      const duration = 700;
+      const stepTime = duration / 20;
       
       const timer = setInterval(() => {
         current += increment;
@@ -224,3 +224,38 @@ function prevExpertise(){
 }
 
 showCards();
+
+/*
+const toggleBtn = document.getElementById("accessibility-toggle");
+const panel = document.getElementById("accessibility-panel");
+
+toggleBtn.addEventListener("click",()=>{
+panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+});
+
+function increaseFont(){
+document.body.style.fontSize =
+(parseFloat(getComputedStyle(document.body).fontSize) + 1) + "px";
+}
+
+function decreaseFont(){
+document.body.style.fontSize =
+(parseFloat(getComputedStyle(document.body).fontSize) - 1) + "px";
+}
+
+function toggleContrast(){
+document.body.classList.toggle("high-contrast");
+}
+
+function toggleGray(){
+document.body.classList.toggle("grayscale");
+}
+
+function toggleLinks(){
+document.body.classList.toggle("underline-links");
+}
+
+function toggleAnimations(){
+document.body.classList.toggle("pause-animations");
+}
+*/
