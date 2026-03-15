@@ -50,77 +50,54 @@ ${f.get('message')}`);
   }, 1000);
 }
 
+// Rotating professions
+const professions = [
+  "Data Solutions Engineer",
+  "Database Engineer",
+  "Data Migration Engineer",
+  "Data Integration Engineer",
+  "SQL Developer",
+  "Data Analyst",
+  "GIS & Spatial Data Specialist",
+  "Supply Chain Systems Analyst",
+  "Enterprise Systems Consultant"
+];
+
+let currentIndex = 0;
+const professionElement = document.getElementById('profession');
+
+setInterval(() => {
+  professionElement.style.transform = 'translateY(-20px)';
+  professionElement.style.opacity = '0';
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % professions.length;
+    professionElement.textContent = professions[currentIndex];
+    professionElement.style.transform = 'translateY(0)';
+    professionElement.style.opacity = '1';
+  }, 400); // Slide up and fade out for 0.4s, then change and slide back
+}, 3000);
+
 window.sendEmail = sendEmail;
+
 
 // Enhanced theme toggle
 const root = document.documentElement;
-const btn = document.getElementById('theme-toggle');
-let currentTheme = 'auto';
+const themeSwitch = document.getElementById("themeSwitch");
 
-function applyTheme(mode) {
-  if (mode === 'dark' || mode === 'light') {
-    root.setAttribute('data-theme', mode);
-  } else {
-    root.setAttribute('data-theme', 'auto');
-  }
-  currentTheme = mode;
-  btn.title = `Theme: ${mode}`;
-}
+if (themeSwitch) {
 
-// Initialize theme
-applyTheme('auto');
+  themeSwitch.addEventListener("change", () => {
 
-btn.addEventListener('click', () => {
-  const current = root.getAttribute('data-theme');
-  let next;
-  if (current === 'dark') { 
-    next = 'light'; 
-  } else if (current === 'light') { 
-    next = 'auto'; 
-  } else { 
-    next = 'dark'; 
-  }
-  applyTheme(next);
-});
-
-// Enhanced skill bars animation
-const skillsObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target;
-    const val = Number(el.dataset.skill) || 0;
-    
-    // Animate with easing
-    let start = 0;
-    const duration = 200; // Εδώ καθορίζεται η ταχύτητα 
-    const startTime = performance.now();
-    
-    function animate(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      const currentWidth = start + (val - start) * easeOut;
-      
-      el.style.width = currentWidth + '%';
-      el.setAttribute('aria-valuenow', Math.round(currentWidth));
-      
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
+    if (themeSwitch.checked) {
+      root.setAttribute("data-theme", "dark");
+    } else {
+      root.setAttribute("data-theme", "light");
     }
-    
-    requestAnimationFrame(animate);
-    skillsObserver.unobserve(el);
+
+    updateFooterBanner();
   });
-}, { threshold: 0.4 });
 
-document.querySelectorAll('.skill .fill[data-skill]').forEach(el => {
-  el.style.width = '0%';
-  skillsObserver.observe(el);
-});
-
+}
 // Enhanced counter animation
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".metric b");
@@ -206,6 +183,44 @@ function updateFooterBanner() {
   }
 }
 
-btn.addEventListener('click', () => setTimeout(updateFooterBanner, 150));
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateFooterBanner);
 document.addEventListener('DOMContentLoaded', updateFooterBanner);
+
+
+const cards = document.querySelectorAll(".expertise-area");
+
+let index = 0;
+const visible = 2;
+
+function showCards(){
+
+  cards.forEach(card => card.style.display = "none");
+
+  for(let i=index; i < index + visible; i++){
+      if(cards[i]) cards[i].style.display = "block";
+  }
+}
+
+function nextExpertise(){
+
+  index += visible;
+
+  if(index >= cards.length){
+      index = 0;
+  }
+
+  showCards();
+}
+
+function prevExpertise(){
+
+  index -= visible;
+
+  if(index < 0){
+      index = cards.length - visible;
+  }
+
+  showCards();
+}
+
+showCards();

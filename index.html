@@ -2,54 +2,77 @@
 <html lang="el" data-theme="auto">
 
 <head>
+  <!--Important meta settings-->
+  <!--Defines the character encoding for the document, ensuring correct display of text and symbols.-->
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+ 
+  <!--Ensures the page is rendered using the latest rendering mode in Internet Explorer, improving compatibility and performance.-->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />  
+  
+  <!--Page title (shown in browser tab + search engines)-->
+  <!--The text shown in the browser tab and in search engine results.-->
   <title>Konstantinos Panousis — Database Engineer</title>
-
+  
+  <!--SEO / Search engines + social link preview data-->
+  <!--A short description used by search engines and when your site is shared.-->
   <meta name="description"
-    content="Database Engineer specializing in SQL Server. Expertise in T-SQL, query optimization, ETL, data warehousing and BI dashboards." />
-  <meta name="keywords"
-    content="Database Engineer, SQL Server, Oracle, T-SQL, PL/SQL, ETL, Data Warehouse, BI, Power BI, SSIS, dbt, performance tuning" />
-  <meta name="author" content="Konstantinos Panousis" />
-
+    content="Data Solutions Engineer specializing in database systems, data engineering and analytics. Building reliable data solutions and transforming complex data into meaningful insights." />
+  
+    <meta name="keywords"
+   content="Data Solutions Engineer, Data Engineer, Database Engineer, Data Engineering, Database Systems,
+   SQL, T-SQL, PL/SQL, ANSI SQL, SQL Programming, SQL Development,
+   SQL Server, Microsoft SQL Server, Oracle Database, PostgreSQL, MySQL,
+   SQL Server Management Studio, SSMS, Azure Data Studio, Oracle SQL Developer, TOAD,
+   ETL, ELT, Data Pipelines, Data Integration, Data Transformation, Data Migration,
+   SSIS, dbt, Apache Airflow, Data Processing, Data Modeling, Data Architecture,
+   Data Warehousing, Data Analytics, Data Analysis, Business Intelligence,
+   Power BI, Tableau, Data Visualization,
+   Query Optimization, SQL Performance Tuning, Stored Procedures, Database Development,
+   Python, Pandas, Data Quality, Data Validation, Data Infrastructure, Data Platforms, Data Systems" />
+ 
+   <meta name="theme-color" content="#0b5cff">
+   <link rel="manifest" href="site.webmanifest">
+ 
+   <meta name="author" content="Konstantinos Panousis" />
+  
+   <!--Theme color for browser UI (mobile friendly)-->
   <meta name="theme-color" content="#0b5cff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0b0f1a" media="(prefers-color-scheme: dark)" />
-
+  <!--Open Graph / Social media preview data-->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Konstantinos Panousis — Database Engineer">
-  <meta property="og:description" content="SQL Optimization, Query Tuning, Performance, ETL, and BI Solutions.">
+  <meta property="og:title" content="Konstantinos Panousis — Data Solutions Engineer">
+  <meta property="og:description" content="Data Solutions Engineer specializing in database systems, data engineering and analytics. Building reliable data solutions and transforming complex data into meaningful insights.">
   <meta property="og:image" content="https://Konstantinospanousis/og-image.png">
   <meta property="og:url" content="https://Konstantinospanousis.com">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!--Favicon (shown in browser tab)-->
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💾</text></svg>"
-    type="image/svg+xml">
-
+    href="assets\images\favicon.ico"
+    type="image/x-icon">
+  <!--PWA Manifest-->
+  <link rel="manifest" href="site.webmanifest">
+  <!--Preload critical resources for better performance-->
+  <link rel="preload" href="assets/css/style.css" as="style">
+  <link rel="preload" href="assets/js/script.js" as="script">
+  <!--Preconnect to Google Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!--Loads your main CSS file that styles everything on your page.-->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--Structured data for SEO-->
 </head>
 
 <body>
 
   <header class="blur-nav">
-    <!--
-    <div class="banner-top">
-      <a href="https://greece20.gov.gr" target="_blank" rel="noopener">
-        <img class="banner-blue" src="images/scale-up-banner-blue.png" alt="ΔΥΠΑ Banner Blue" />
-        <img class="banner-white" src="images/scale-up-banner-white.png" alt="ΔΥΠΑ Banner White" />
-      </a>
-    </div>
-  -->
     <div class="container nav">
+       <img src="assets/images/companylogo.png" alt="Company Logo" class="logo">
       <div class="brand">
         <div>
           Konstantinos Panousis<br>
-          <small class="muted">Database Engineer</small>
+          <small class="muted profession" id="profession">Data Solutions Engineer</small>
         </div>
       </div>
 
@@ -58,14 +81,61 @@
         <a href="#About">About</a>
         <a href="#projects">Projects</a>
 
+        <!--
         <button id="theme-toggle" class="btn ghost theme-toggle" type="button" title="Toggle theme"
+        
           aria-label="Toggle theme">
           <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em"
             class="theme-toggle__dark-side" fill="currentColor" viewBox="0 0 32 32">
             <path
               d="M16 .5C7.4.5.5 7.4.5 16S7.4 31.5 16 31.5 31.5 24.6 31.5 16 24.6.5 16 .5zm0 28.1V3.4C23 3.4 28.6 9 28.6 16S23 28.6 16 28.6z" />
           </svg>
-        </button>
+        </button> -->
+
+          <!--
+        <div class="theme-switch-wrapper">
+       <span class="theme-icon sun">☀</span>
+
+      <div class="theme-switch">
+      <input type="checkbox" id="themeSwitch" class="theme-switch__input">
+      <label for="themeSwitch" class="theme-switch__label"></label>
+      </div>
+      <span class="theme-icon moon">🌙</span>
+      </div> -->
+
+<div class="theme-switch-wrapper">
+
+  <!-- SUN -->
+  <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+    <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+    <g stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="1" x2="12" y2="4"/>
+      <line x1="12" y1="20" x2="12" y2="23"/>
+      <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/>
+      <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/>
+      <line x1="1" y1="12" x2="4" y2="12"/>
+      <line x1="20" y1="12" x2="23" y2="12"/>
+      <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/>
+      <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/>
+    </g>
+  </svg>
+
+  <div class="theme-switch">
+    <input type="checkbox" id="themeSwitch" class="theme-switch__input">
+    <label for="themeSwitch" class="theme-switch__label"></label>
+  </div>
+
+  <!-- MOON -->
+  <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3
+      7 7 0 0 0 21 12.8z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"/>
+  </svg>
+
+</div>
+
 
         <a class="btn" href="#contact">Contact</a>
       </nav>
@@ -77,92 +147,86 @@
     <section id="Home" class="hero card">
       <div class="left" data-reveal>
         <div class="eyebrow">Build data you can trust.<br>Make decisions with confidence.</div>
-        <h1>Hi, I'm Konstantinos,<br>Engineering reliable data solutions.</h1>
+          <h1>Hi, I'm Konstantinos,<br>Engineering reliable data solutions.</h1>
+          <h2 class="expertise-title">AREAS OF EXPERTISE</h2>
 
-        <div class="badges">
-          <span class="badge">SQL Server</span>
-          <span class="badge">T-SQL</span>
-          <span class="badge">SSIS</span>
-          <span class="badge">SSRS</span>
-          <span class="badge">Power BI</span>
-          <span class="badge">Azure SQL</span>
-          <span class="badge">Python</span>
-          <span class="badge">PostgreSQL</span>
-          <span class="badge">MySQL</span>
-          <span class="badge">GIS</span>
-        </div>
-
-        <div class="panel-title">
-          <h2>Skills</h2>
-        </div>
-        <div class="skills">
-          <div class="skill">
-            <div class="row">
-              <span>SQL</span><span class="pct">95%</span>
+          <div class="expertise-areas">
+            <div class="expertise-area">
+              <h3>Database Engineering</h3>
+              <div class="badges">
+                <span class="badge">Microsoft SQL Server</span>
+                <span class="badge">T-SQL</span>
+                <span class="badge">PL/SQL</span>
+                <span class="badge">PostgreSQL</span>
+                <span class="badge">MySQL</span>
+                <span class="badge">Azure SQL</span>
+              </div>
             </div>
-            <div class="bar">
-              <div class="fill" data-skill="95" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+
+            <div class="expertise-area">
+              <h3>Data Engineering & Integration</h3>
+              <div class="badges">
+                <span class="badge">ETL Pipelines</span>
+                <span class="badge">Data Migration</span>
+                <span class="badge">Data Integration</span>
+                <span class="badge">Data Validation</span>
+                <span class="badge">SSIS</span>
+                <span class="badge">Python</span>
+              </div>
+            </div>
+
+            <div class="expertise-area">
+              <h3>Data Modeling & Performance</h3>
+              <div class="badges">
+                <span class="badge">Data Modeling</span>
+                <span class="badge">Query Optimization</span>
+                <span class="badge">Performance Tuning</span>
+                <span class="badge">Index Optimization</span>
+                <span class="badge">Execution Plan Analysis</span>
+              </div>
+            </div>
+
+            <div class="expertise-area">
+              <h3>Analytics & Reporting</h3>
+              <div class="badges">
+                <span class="badge">Power BI</span>
+                <span class="badge">SSRS</span>
+                <span class="badge">Crystal Reports</span>
+              </div>
+            </div>
+
+            <div class="expertise-area">
+              <h3>Enterprise Systems & Data Platforms</h3>
+              <div class="badges">
+                <span class="badge">ERP Data Systems</span>
+                <span class="badge">WMS Data Systems</span>
+                <span class="badge">CRM Data Systems</span>
+                <span class="badge">Enterprise Data Workflows</span>
+                <span class="badge">Cross-System Data Integration</span>
+              </div>
+            </div>
+
+            <div class="expertise-area">
+              <h3>Geospatial Data</h3>
+              <div class="badges">
+                <span class="badge">GIS</span>
+                <span class="badge">Geospatial Data Management</span>
+                <span class="badge">Spatial Data Analysis</span>
+                <span class="badge">Remote Sensing</span>
+              </div>
             </div>
           </div>
 
-          <div class="skill">
-            <div class="row">
-              <span>Database Design</span><span class="pct">85%</span>
-            </div>
-            <div class="bar">
-              <div class="fill" data-skill="85" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            </div>
+          <!--new-->
+          <div class="expertise-nav">
+          <button onclick="prevExpertise()" class="btn ghost">Prev</button>
+          <button onclick="nextExpertise()" class="btn">Next</button>
           </div>
 
-          <div class="skill">
-            <div class="row">
-              <span>Data Modeling</span><span class="pct">80%</span>
-            </div>
-            <div class="bar">
-              <div class="fill" data-skill="80" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            </div>
-          </div>
-
-          <div class="skill">
-            <div class="row">
-              <span>Query Optimization</span><span class="pct">95%</span>
-            </div>
-            <div class="bar">
-              <div class="fill" data-skill="95" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            </div>
-          </div>
-
-          <div class="skill">
-            <div class="row">
-              <span>ETL</span><span class="pct">75%</span>
-            </div>
-            <div class="bar">
-              <div class="fill" data-skill="75" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            </div>
-          </div>
-
-          <div class="skill">
-            <div class="row">
-              <span>Performance Tuning</span><span class="pct">95%</span>
-            </div>
-            <div class="bar">
-              <div class="fill" data-skill="95" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            </div>
-          </div>
-
-          <div class="skill">
-            <div class="row">
-              <span>Python</span><span class="pct">75%</span>
-            </div>
-            <div class="bar">
-              <div class="fill" data-skill="75" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="hero-img">
-        <img src="images/kpn_photo.jpg" alt="Konstantinos Panousis" />
+        <img src="assets/images/kpn_photo.jpg" alt="Konstantinos Panousis" />
 
         <div class="hero-metrics">
           <div class="metric">
@@ -173,6 +237,7 @@
 
         <a class="btn2" href="#projects">View Projects</a>
       </div>
+      
     </section>
 
     <section id="About" class="card" data-reveal>
@@ -181,23 +246,21 @@
       </div>
       <div class="about">
         <div>
-          <h3>Who I am</h3>
 
-          <p>Database Engineer with over 4 years of experience specializing in development, and optimization of
-            business-critical reports and data workflows.</p>
+          <p>Technology professional specializing in data engineering, database systems and data-driven applications. 
+            Holder of two MSc degrees in Geoinformatics and Supply Chain Management, combining strong analytical thinking with technical expertise in complex information systems.</p>
 
-          <p>Throughout my career in finance, logistics, and utilities, I have consistently delivered high-quality
-            reports using T-SQL, and SSRS, supporting decision-making across departments.</p>
+          <p>Experienced in enterprise IT environments, contributing to data processing workflows, database operations and enterprise system implementations across ERP, CRM and WMS platforms. 
+            Skilled in working with structured data, supporting data integration, validation and performance optimization processes.</p>
 
-          <p>My expertise includes developing SSIS-based ETL pipelines, ensuring data integrity, and collaborating
-            closely with stakeholders to align reporting outputs with business needs.</p>
+          <p>Earlier experience includes participation in geospatial and environmental monitoring projects within European initiatives such as the LUCAS land monitoring program and the Urban Atlas project, supporting land use analysis and spatial data processing.</p>  
 
-          <p>I am also expanding into modern data engineering tools, enhancing my ability to build scalable,
-            future-proof data solutions.</p>
+          <p>Interested in building reliable data systems and solutions that support decision-making through analytics, geospatial technologies and modern data infrastructure.</p>     
+
         </div>
       </div>
     </section>
-
+  
     <section id="services" class="card" data-reveal>
       <div class="panel-title">
         <h2>Services</h2>
@@ -318,8 +381,8 @@
     <footer>
       <div class="footer-banners">
         <a href="https://greece20.gov.gr" target="_blank" rel="noopener">
-          <img class="banner-blue" src="images/scale-up-banner-blue.png" alt="ΔΥΠΑ Banner Blue" />
-          <img class="banner-white" src="images/scale-up-banner-white.png" alt="ΔΥΠΑ Banner White" />
+          <img class="banner-blue" src="assets/images/scale-up-banner-blue.png" alt="ΔΥΠΑ Banner Blue" />
+          <img class="banner-white" src="assets/images/scale-up-banner-white.png" alt="ΔΥΠΑ Banner White" />
         </a>
       </div>
       <p>© <span id="y"></span> • Konstantinos Panousis Athens GR • </p>
@@ -327,7 +390,7 @@
 
   </main>
 
-  <script src="script.js" defer></script>
+  <script src="assets/js/script.js" defer></script>
 
 </body>
 
