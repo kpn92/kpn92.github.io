@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+      // Set theme from localStorage for consistency
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enterprise Platform Projects</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="blur-nav">
+    <div class="container nav">
+      <a href="index.html" class="logo-link"><img src="assets/images/companylogo.png" alt="Company Logo" class="logo"></a>
+      <div class="brand">
+        <div>Enterprise Platforms<br><small class="muted">ERP, WMS, CRM</small></div>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+      <a href="#" onclick="window.location.href='index.html#projects'; return false;" class="btn ghost" style="margin: 1.5rem 0 0 0; display: inline-block;">&larr; Back</a>
+    <section class="card">
+      <h2>Enterprise Platform Projects</h2>
+      <div class="project-list">
+        <!-- Add your enterprise platform projects here -->
+        <div class="project-card">
+          <h3>ERP Integration</h3>
+          <p>Implemented custom data workflows for ERP systems.</p>
+        </div>
+        <div class="project-card">
+          <h3>WMS Automation</h3>
+          <p>Developed automated warehouse management solutions.</p>
+        </div>
+        <div class="project-card">
+          <h3>CRM Data Migration</h3>
+          <p>Migrated and validated customer data for CRM platforms.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+<script>
+// Ensure smooth scroll to #projects after navigation
+if (window.location.hash === '#projects') {
+  window.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById('projects');
+    if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+}
+</script>
+</html>

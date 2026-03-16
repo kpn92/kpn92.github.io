@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="el" data-theme="auto">
+<html lang="el" data-theme="dark">
 
 <head>
+    <!-- Vanta.js animated background scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
   <script src="https://cdn.userway.org/widget.js" data-account="YOUR_ID"></script>  
-  <link rel="alternate" hreflang="el" href="el.html">
+      <div class="grid pad"> <!-- Commenting out the project details -->
 
   <!--Important meta settings-->
   <!--Defines the character encoding for the document, ensuring correct display of text and symbols.-->
@@ -93,6 +96,11 @@
 -->
 
 <script src="https://cdn.userway.org/widget.js" data-account="YOUR_ID"></script>
+
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="particles-config.js"></script>
 
 <body>
 
@@ -343,133 +351,21 @@
       <div class="panel-title">
         <h2>Projects</h2>
       </div>
-
-      <div class="grid pad">
-
-<article class="project-card col-4">
-
-  <div class="project-image">
-    <img src="assets/images/crm.png" alt="CRM Integration Project">
-  </div>
-
-  <div class="project-content">
-    <h3>Automated Flat File Integration to CRM</h3>
-
-    <p class="project-problem">
-      <strong>Problem:</strong> CRM system required automated import of customer data from multiple flat files.
-    </p>
-
-    <p class="project-solution">
-      <strong>Solution:</strong> Designed SQL Server stored procedures to parse, validate and transform data before inserting it into CRM tables.
-    </p>
-
-    <div class="tags">
-      <span class="tag">T-SQL</span>
-      <span class="tag">ETL</span>
-      <span class="tag">Stored Procedures</span>
-      <span class="tag">Data Integration</span>
-    </div>
-
-  </div>
-
-</article>
-<article class="project-card col-4">
-
-  <div class="project-image">
-    <img src="assets/images/wms.png" alt="CRM Integration Project">
-  </div>
-
-  <div class="project-content">
-    <h3>Automated Flat File Integration to CRM</h3>
-
-    <p class="project-problem">
-      <strong>Problem:</strong> CRM system required automated import of customer data from multiple flat files.
-    </p>
-
-    <p class="project-solution">
-      <strong>Solution:</strong> Designed SQL Server stored procedures to parse, validate and transform data before inserting it into CRM tables.
-    </p>
-
-    <div class="tags">
-      <span class="tag">T-SQL</span>
-      <span class="tag">ETL</span>
-      <span class="tag">Stored Procedures</span>
-      <span class="tag">Data Integration</span>
-    </div>
-
-  </div>
-
-</article>
-<article class="project-card col-4">
-
-  <div class="project-image">
-    <img src="assets/images/data-migration.png" alt="CRM Integration Project">
-  </div>
-
-  <div class="project-content">
-    <h3>Automated Flat File Integration to CRM</h3>
-
-    <p class="project-problem">
-      <strong>Problem:</strong> CRM system required automated import of customer data from multiple flat files.
-    </p>
-
-    <p class="project-solution">
-      <strong>Solution:</strong> Designed SQL Server stored procedures to parse, validate and transform data before inserting it into CRM tables.
-    </p>
-
-    <div class="tags">
-      <span class="tag">T-SQL</span>
-      <span class="tag">ETL</span>
-      <span class="tag">Stored Procedures</span>
-      <span class="tag">Data Integration</span>
-    </div>
-
-  </div>
-
-</article>
-        <!--
-        <article class="proj col-6 card">
-          <h3>Automated Flat File Integration to CRM</h3>
-          <p>Designed SQL Server stored procedures to import customer data from flat files into the CRM. Implemented
-            parsing, validation, and transformations to ensure clean, consistent data.</p>
-          <div class="tags">
-            <span class="tag">T-SQL</span><span class="tag">ETL</span><span class="tag">Stored Procedures</span>
-            <span class="tag">Data Import</span><span class="tag">Data Integration</span><span class="tag">Flat
-              Files</span>
-          </div>
-        </article>
-
-        <article class="proj col-6 card">
-          <h3>Technical Consulting on WMS</h3>
-          <p>Developed custom reports and automation scripts for WMS clients, streamlining warehouse operations and
-            supporting decision-making.</p>
-          <div class="tags">
-            <span class="tag">T-SQL</span><span class="tag">VB Script</span><span class="tag">XML</span><span
-              class="tag">SSRS</span>
-            <span class="tag">Reporting</span> <span class="tag">KPIs</span>
-          </div>
-        </article>
-
-        <article class="proj col-6 card">
-          <h3>CRM Data Export to SFTP</h3>
-          <p>Developed an SSIS package to extract CRM data, transform it into structured CSV files, and deliver them to
-            the customer's SFTP server. Automated scheduling ensured timely and reliable data delivery.</p>
-          <div class="tags">
-            <span class="tag">T-SQL</span><span class="tag">ETL</span><span class="tag">SSIS</span>
-            <span class="tag">Data Export</span><span class="tag">SFTP</span><span class="tag">Powershell</span>
-          </div>
-        </article>
-
-        <article class="proj col-6 card">
-          <h3>Geospatial Data Management</h3>
-          <p>Managed and processed geospatial datasets for cadastral projects and EU-funded programs. Designed and
-            maintained spatial databases, performed data cleaning and transformations.</p>
-          <div class="tags">
-            <span class="tag">GIS</span><span class="tag">Geospatial Data</span><span class="tag">Cadastral</span>
-            <span class="tag">Spatial dbs</span><span class="tag">PostgreSQL</span>
-          </div>
-        </article>
-      </div>-->
+      <div class="project-categories">
+        <div class="category-card" onclick="window.location.href='projects-enterprise.html'">
+          <img src="assets/images/enterprise_logo2.png" alt="Enterprise Projects">
+          <div class="card-hover-text">View Projects</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='projects-geospatial.html'">
+          <img src="assets/images/geospatial_logo (2).png" alt="Geospatial Projects">
+          <div class="card-hover-text">View Projects</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='projects-public.html'">
+          <img src="assets/images/public_sector_logo2.png" alt="Public Sector Projects">
+          <div class="card-hover-text">View Projects</div>
+        </div>
+      </div>
+      
     </section>
 
     <section id="contact" class="card" data-reveal>
@@ -518,5 +414,15 @@
   <script src="assets/js/script.js" defer></script>
 
 </body>
+</html>
+<script>
+// Remove #projects hash from URL on load so page always starts at Home
+if (window.location.hash === '#projects') {
+  history.replaceState(null, '', window.location.pathname);
+}
+</script>
+</html>
+<script>
+</script>
 
 </html>

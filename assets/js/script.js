@@ -1,3 +1,20 @@
+// Theme toggle: default to dark, toggle to light
+document.addEventListener('DOMContentLoaded', function() {
+  const themeSwitch = document.getElementById('themeSwitch');
+  // Restore theme from localStorage or default to dark
+  let theme = localStorage.getItem('theme');
+  if (!theme) theme = 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  if (themeSwitch) {
+    themeSwitch.checked = (theme === 'dark');
+    themeSwitch.addEventListener('change', function() {
+      const isDark = themeSwitch.checked;
+      const newTheme = isDark ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+});
 // Year in footer
 document.getElementById('y').textContent = new Date().getFullYear();
 
@@ -259,3 +276,31 @@ function toggleAnimations(){
 document.body.classList.toggle("pause-animations");
 }
 */
+
+
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 70 },
+    color: { value: "#3b82f6" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#3b82f6",
+      opacity: 0.3,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 1.5
+    }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "grab" }
+    }
+  },
+  retina_detect: true
+});

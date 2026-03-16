@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+      // Set theme from localStorage for consistency
+      (function() {
+        var theme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Public Sector Projects</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="blur-nav">
+    <div class="container nav">
+      <a href="index.html" class="logo-link"><img src="assets/images/companylogo.png" alt="Company Logo" class="logo"></a>
+      <div class="brand">
+        <div>Public Sector<br><small class="muted">Government Systems</small></div>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+      <a href="#" onclick="window.location.href='index.html#projects'; return false;" class="btn ghost" style="margin: 1.5rem 0 0 0; display: inline-block;">&larr; Back</a>
+    <section class="card">
+      <h2>Public Sector Projects</h2>
+      <div class="project-list">
+        <div class="project-card special">
+          <h3>Project: National Pension System Data Migration from Legacy funds to EFKA</h3>
+          <ul>
+            <li>Working on large-scale data migration of pension beneficiaries from multiple legacy funds into a unified national pension system.</li>
+            <li>Implementing and maintaining SQL/PLSQL transformation logic to load migrated data into production systems.</li>
+            <li>Performing rule-based validation and reconciliation checks to ensure data accuracy and consistency.</li>
+            <li>Debugging data and logic issues in migration workflows and supporting post-migration maintenance of core entities.</li>
+          </ul>
+        </div>
+        <div class="project-card">
+          <h3>Information System Implementation</h3>
+          <p>Implemented government information systems for public services.</p>
+        </div>
+        <div class="project-card">
+          <h3>Reporting & Analytics</h3>
+          <p>Developed reporting solutions for public sector decision-making.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+<script>
+// Ensure smooth scroll to #projects after navigation
+if (window.location.hash === '#projects') {
+  window.addEventListener('DOMContentLoaded', function() {
+    var el = document.getElementById('projects');
+    if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+}
+</script>
+</html>
