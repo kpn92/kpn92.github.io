@@ -1140,3 +1140,12 @@ transition:none !important;
   padding:3px 8px;
   border-radius:20px;
 }
+
+/* Mobile fix for expertise cards */
+@media (max-width: 768px) {
+
+  .expertise-areas{
+    grid-template-columns: 1fr;
+  }
+
+}
