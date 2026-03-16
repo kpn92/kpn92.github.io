@@ -106,7 +106,7 @@ html[data-theme="dark"] {
   border-radius: var(--radius);
   padding: 1.4rem 1.4rem 1.6rem;
 
-  height: 420px;
+  height: auto;
   display:flex;
   flex-direction:column;
   width:100%;
@@ -1142,10 +1142,18 @@ transition:none !important;
 }
 
 /* Mobile fix for expertise cards */
-@media (max-width: 768px) {
+@media (max-width:768px){
 
   .expertise-areas{
     grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width:768px){
+
+  .expertise-area .badges{
+    grid-template-columns: repeat(2,1fr);
   }
 
 }
