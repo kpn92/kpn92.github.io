@@ -17,6 +17,15 @@ html {
   --error: #ef4444;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6f8fc;
+    --panel: #ffffff;
+    --text: #0b1324;
+    --muted: #51607c;
+  }
+}
+
 html[data-theme="light"] {
   --bg: #eef2f7;
   --panel: #ffffff;
@@ -60,8 +69,8 @@ body {
 }
 
 @keyframes gradientMove {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
@@ -77,7 +86,7 @@ html[data-theme="light"] body {
 }
 
 html[data-theme="light"] .container {
-  background: transparent;
+  background: transparent !important;
 }
 
 /* NAVBAR */
@@ -101,7 +110,7 @@ html[data-theme="dark"] .blur-nav.scrolled {
 html[data-theme="light"] .blur-nav.scrolled {
   padding: 6px 0;
   backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.85) !important;
   box-shadow: 0 10px 35px rgba(0,0,0,0.12);
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
@@ -158,17 +167,11 @@ nav a:hover {
   box-shadow: 0 25px 50px rgba(0,0,0,.4);
 }
 
-/* Ghost variant — uses a more specific selector to avoid needing !important */
 .btn.ghost {
-  background: transparent;
+  background: transparent !important;
   color: var(--text);
   border: 1px solid color-mix(in oklab, var(--panel) 70%, transparent);
-  box-shadow: none;
-}
-
-.btn.ghost:hover {
-  background: color-mix(in oklab, var(--panel) 30%, transparent);
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .btn2 {
@@ -190,6 +193,21 @@ nav a:hover {
 .btn2:hover {
   transform: translateY(-2px);
   box-shadow: 0 25px 50px rgba(0,0,0,.4);
+}
+
+#theme-toggle {
+  background: none;
+  border: 1px solid color-mix(in oklab, var(--panel) 70%, transparent);
+  color: var(--text);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: color-mix(in oklab, var(--panel) 50%, transparent);
+  border-color: var(--brand);
 }
 
 /* CARDS */
@@ -246,6 +264,8 @@ h1 {
   height: 320px;
   min-height: 320px;
   max-height: 320px;
+  justify-content: center;
+  overflow: hidden;
   object-fit: cover;
   box-shadow: var(--shadow);
   transition: transform 0.3s ease;
@@ -305,6 +325,45 @@ h1 {
   font-size: 0.9rem;
 }
 
+/* SKILLS */
+.skills {
+  padding: 1.5rem;
+}
+
+.skill {
+  margin: 1.5rem 0;
+}
+
+.skill .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+  font-weight: 600;
+}
+
+.skill .pct {
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.skill .bar {
+  height: 8px;
+  background: color-mix(in oklab, var(--panel) 70%, transparent);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--panel) 85%, transparent);
+}
+
+.skill .fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  border-radius: 999px;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* ABOUT */
 .about {
   padding: 0.4rem 1.5rem 1.5rem;
@@ -321,10 +380,51 @@ h1 {
   line-height: 1.7;
 }
 
-/* SECTIONS */
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-6 { grid-column: span 6; }
+.col-12 { grid-column: span 12; }
+
+.pad {
+  padding: 1rem;
+}
+
+/* SERVICES */
 section {
   padding: 2rem 0;
   scroll-margin-top: 80px;
+}
+
+.service {
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.service h4 {
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.service p {
+  color: var(--muted);
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.service.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0,0,0,.4);
+  background: color-mix(in oklab, var(--panel) 85%, var(--brand) 8%);
 }
 
 .profession {
@@ -360,16 +460,13 @@ section {
 }
 
 .expertise-areas {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  height: 380px;
-  overflow: hidden;
+  align-items: stretch;
 }
 
 .expertise-area {
-  flex: 0 0 calc(50% - 0.75rem);
-  height: 380px;
   position: relative;
   overflow: hidden;
   background: rgba(8, 14, 28, 0.6);
@@ -379,6 +476,7 @@ section {
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
   backdrop-filter: blur(14px);
+  height: auto;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -389,6 +487,10 @@ html[data-theme="light"] .expertise-area {
   border: 1px solid rgba(0,0,0,0.08);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   backdrop-filter: blur(8px);
+}
+
+.expertise-area.active {
+  display: block;
 }
 
 .expertise-area::before {
@@ -404,8 +506,8 @@ html[data-theme="light"] .expertise-area {
 }
 
 @keyframes expertise-glow {
-  0%   { transform: translateX(-110%); }
-  50%  { transform: translateX(110%); }
+  0% { transform: translateX(-110%); }
+  50% { transform: translateX(110%); }
   100% { transform: translateX(-110%); }
 }
 
@@ -478,10 +580,6 @@ html[data-theme="light"] .badge {
   background: rgba(15, 23, 40, 0.82);
 }
 
-html[data-theme="light"] .project-categories {
-  background: transparent;
-}
-
 .category-card {
   background: rgba(15, 23, 40, 0.82);
   border: 1px solid color-mix(in oklab, var(--panel) 75%, transparent);
@@ -501,30 +599,31 @@ html[data-theme="light"] .project-categories {
   align-items: center;
   justify-content: space-between;
   flex: none;
-  position: relative;
-}
-
-html[data-theme="light"] .category-card {
-  background: #f2f6fb;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
 }
 
 .card-hover-text {
   white-space: nowrap;
   position: absolute;
-  top: auto;
-  bottom: 0.1rem;
+  top: 0.7rem;
   left: 50%;
+  width: auto;
+  height: auto;
   transform: translateX(-50%);
+  display: block;
   color: var(--brand2);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .11em;
+  background: none;
+  box-shadow: none;
+  border: none;
+  backdrop-filter: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.10);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s, transform 0.25s;
+  text-align: center;
   z-index: 3;
 }
 
@@ -546,11 +645,10 @@ html[data-theme="light"] .category-card {
   object-fit: contain;
   border-radius: 0;
   box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+  margin-bottom: 0;
+  background: none;
+  border: none;
   transition: box-shadow 0.25s, border 0.25s, transform 0.25s;
-}
-
-html[data-theme="light"] .category-card img {
-  box-shadow: none;
 }
 
 .category-card:hover img {
@@ -568,31 +666,11 @@ html[data-theme="light"] .category-card img {
   text-shadow: 0 4px 12px rgba(0, 210, 255, 0.12);
 }
 
-/* PROJECT CARDS (used on sub-pages) */
-.project-card {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 16px;
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-html[data-theme="light"] .project-card {
-  background: #f2f6fb;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-}
-
 .project-card.special {
   background: color-mix(in oklab, var(--panel) 96%, transparent);
   border: 1.5px solid color-mix(in oklab, var(--panel) 80%, transparent);
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 1.2rem;
+  padding: 1.2rem 1.2rem 1.1rem 1.2rem;
   border-radius: 14px;
   margin-bottom: 2rem;
 }
@@ -616,6 +694,7 @@ html[data-theme="light"] .project-card {
 .project-card.special li {
   margin-bottom: 0.4rem;
   padding-left: 0.2rem;
+  position: relative;
 }
 
 .project-card.special li::before {
@@ -623,6 +702,18 @@ html[data-theme="light"] .project-card {
   color: var(--brand2);
   font-weight: 700;
   margin-right: 0.2em;
+}
+
+.project-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
 .project-image {
@@ -762,8 +853,8 @@ textarea::placeholder {
   color: var(--muted);
 }
 
-html[data-theme="light"] .contact input,
-html[data-theme="light"] .contact textarea {
+html[data-theme="light"] input,
+html[data-theme="light"] textarea {
   background: #ffffff;
   border-color: #c9d3e0;
 }
@@ -811,14 +902,39 @@ footer {
   vertical-align: middle;
 }
 
-/* FOOTER BANNER THEME SWITCHING */
-.banner-blue  { display: inline; }
+.footer-banners img:hover {
+  transform: none;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.banner-top {
+  text-align: center;
+  background: var(--bg);
+  border-bottom: 1px solid color-mix(in oklab, var(--panel) 70%, transparent);
+  padding: 1rem 0;
+}
+
+.banner-top img {
+  height: 270px;
+  max-width: 100%;
+  object-fit: contain;
+  border: none;
+}
+
+/* FOOTER BANNERS */
+.banner-blue { display: inline; }
 .banner-white { display: none; }
 
-html[data-theme="light"] .banner-blue  { display: none; }
-html[data-theme="light"] .banner-white { display: inline; }
-html[data-theme="dark"]  .banner-blue  { display: inline; }
-html[data-theme="dark"]  .banner-white { display: none; }
+@media (prefers-color-scheme: light) {
+  .banner-blue { display: none; }
+  .banner-white { display: inline; }
+}
+
+[data-theme="light"] .banner-blue { display: none; }
+[data-theme="light"] .banner-white { display: inline; }
+[data-theme="dark"] .banner-blue { display: inline; }
+[data-theme="dark"] .banner-white { display: none; }
 
 /* THEME SWITCH */
 .theme-switch {
@@ -872,6 +988,37 @@ html[data-theme="dark"]  .banner-white { display: none; }
   color: #9aa5b1;
 }
 
+/* ACCESSIBILITY */
+.accessibility-widget {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+
+#accessibility-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: #0b5cff;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+}
+
+.accessibility-panel {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--panel);
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+}
+
 /* PARTICLES */
 #particles-js {
   position: fixed;
@@ -887,44 +1034,28 @@ html[data-theme="light"] #particles-js {
   background: #e9eef5;
 }
 
-/* LIGHT MODE — CARD OVERRIDES
-   Using [data-theme="light"] prefix for sufficient specificity
-   without needing !important */
-html[data-theme="light"] .card {
-  background: #f2f6fb;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+/* LIGHT MODE CARD FIXES */
+html[data-theme="light"] .card,
+html[data-theme="light"] .category-card,
+html[data-theme="light"] .expertise-area,
+html[data-theme="light"] .project-card {
+  background: #f2f6fb !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.06) !important;
 }
 
-/* SCROLL REVEAL */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+html[data-theme="light"] .project-categories {
+  background: transparent !important;
 }
 
-[data-reveal].visible {
-  opacity: 1;
-  transform: translateY(0);
+html[data-theme="light"] .category-card img {
+  box-shadow: none;
 }
 
-/* LANG SWITCH */
-.lang-switch {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-}
-
-.lang-switch a {
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.lang-switch a.active,
-.lang-switch a:hover {
-  color: var(--brand);
+html[data-theme="light"] .badge {
+  background: #eef5ff;
+  color: #1b2b4b;
+  border: 1px solid #d9e6ff;
 }
 
 /* RESPONSIVE */
@@ -941,10 +1072,15 @@ html[data-theme="light"] .card {
   .hero-img img {
     width: 200px;
     height: 240px;
-    min-width: 200px;
-    max-width: 200px;
-    min-height: 240px;
-    max-height: 240px;
+  }
+
+  .grid {
+    gap: 1rem;
+  }
+
+  .col-3,
+  .col-6 {
+    grid-column: span 6;
   }
 }
 
@@ -995,6 +1131,11 @@ html[data-theme="light"] .card {
     margin-right: -1rem;
   }
 
+  .col-3,
+  .col-6 {
+    grid-column: span 12;
+  }
+
   nav {
     gap: 1rem;
   }
@@ -1016,10 +1157,6 @@ html[data-theme="light"] .card {
   .hero-img img {
     width: 160px;
     height: 200px;
-    min-width: 160px;
-    max-width: 160px;
-    min-height: 200px;
-    max-height: 200px;
   }
 
   .badge {

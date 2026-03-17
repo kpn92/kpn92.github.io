@@ -1,35 +1,4 @@
 // ===============================
-// THEME TOGGLE
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const root = document.documentElement;
-  const themeSwitch = document.getElementById("themeSwitch");
-
-  let theme = localStorage.getItem("theme") || "dark";
-  root.setAttribute("data-theme", theme);
-
-  if (themeSwitch) {
-    themeSwitch.checked = (theme === "dark");
-
-    themeSwitch.addEventListener("change", () => {
-
-      const newTheme = themeSwitch.checked ? "dark" : "light";
-
-      root.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-
-      updateFooterBanner();
-    });
-  }
-
-  updateFooterBanner();
-
-});
-
-
-// ===============================
 // FOOTER YEAR
 // ===============================
 
@@ -145,9 +114,7 @@ if (professionElement) {
     setTimeout(() => {
 
       currentIndex = (currentIndex + 1) % professions.length;
-
       professionElement.textContent = professions[currentIndex];
-
       professionElement.style.transform = "translateY(0)";
       professionElement.style.opacity = "1";
 
@@ -156,61 +123,6 @@ if (professionElement) {
   }, 3000);
 
 }
-
-
-// ===============================
-// COUNTER ANIMATION
-// ===============================
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const counters = document.querySelectorAll(".metric b");
-
-  const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-      if (!entry.isIntersecting) return;
-
-      const counter = entry.target;
-
-      const target = +counter.dataset.target;
-
-      let current = 0;
-
-      const increment = target / 20;
-
-      const timer = setInterval(() => {
-
-        current += increment;
-
-        if (current >= target) {
-
-          counter.textContent = target + "+";
-          clearInterval(timer);
-
-        } else {
-
-          counter.textContent = Math.floor(current);
-
-        }
-
-      }, 35);
-
-      observer.unobserve(counter);
-
-    });
-
-  }, { threshold: 0.5 });
-
-  counters.forEach(counter => {
-
-    counter.textContent = "0";
-    observer.observe(counter);
-
-  });
-
-});
 
 
 // ===============================
@@ -240,56 +152,141 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
 
 
 // ===============================
-// NAVBAR SCROLL EFFECT
+// ALL DOM-DEPENDENT LOGIC (single DOMContentLoaded)
 // ===============================
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  const root = document.documentElement;
+
+  // --- THEME TOGGLE ---
+
+  const themeSwitch = document.getElementById("themeSwitch");
+
+  let theme = localStorage.getItem("theme") || "dark";
+  root.setAttribute("data-theme", theme);
+
+  if (themeSwitch) {
+    themeSwitch.checked = (theme === "dark");
+
+    themeSwitch.addEventListener("change", () => {
+
+      const newTheme = themeSwitch.checked ? "dark" : "light";
+
+      root.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+
+      updateFooterBanner();
+    });
+  }
+
+  // --- FOOTER BANNER ---
+
+  const blueBanner = document.querySelector(".banner-blue");
+  const whiteBanner = document.querySelector(".banner-white");
+
+  function updateFooterBanner() {
+
+    const currentTheme = root.getAttribute("data-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = currentTheme === "dark" || (currentTheme === "auto" && prefersDark);
+
+    if (blueBanner && whiteBanner) {
+      blueBanner.style.display = isDark ? "inline" : "none";
+      whiteBanner.style.display = isDark ? "none" : "inline";
+    }
+
+  }
+
+  window.matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", updateFooterBanner);
+
+  updateFooterBanner();
+
+  // --- COUNTER ANIMATION ---
+
+  const counters = document.querySelectorAll(".metric b");
+
+  const counterObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if (!entry.isIntersecting) return;
+
+      const counter = entry.target;
+      const target = +counter.dataset.target;
+
+      let current = 0;
+      const increment = target / 20;
+
+      const timer = setInterval(() => {
+
+        current += increment;
+
+        if (current >= target) {
+          counter.textContent = target + "+";
+          clearInterval(timer);
+        } else {
+          counter.textContent = Math.floor(current);
+        }
+
+      }, 35);
+
+      counterObserver.unobserve(counter);
+
+    });
+
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => {
+    counter.textContent = "0";
+    counterObserver.observe(counter);
+  });
+
+  // --- NAVBAR SCROLL EFFECT ---
+
   const nav = document.querySelector(".blur-nav");
 
   function updateNavbar() {
-
     if (window.scrollY > 80) {
       nav.classList.add("scrolled");
     } else {
       nav.classList.remove("scrolled");
     }
-
   }
 
   window.addEventListener("scroll", updateNavbar);
-
   updateNavbar();
 
-});
+  // --- EXPERTISE CARDS SLIDER ---
 
+  const expertiseCards = document.querySelectorAll(".expertise-area");
+  let expertiseIndex = 0;
+  const cardsPerView = 2;
 
-// ===============================
-// FOOTER BANNER SWITCH
-// ===============================
-
-const root = document.documentElement;
-const blueBanner = document.querySelector(".banner-blue");
-const whiteBanner = document.querySelector(".banner-white");
-
-function updateFooterBanner() {
-
-  const theme = root.getAttribute("data-theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const isDark = theme === "dark" || (theme === "auto" && prefersDark);
-
-  if (blueBanner && whiteBanner) {
-
-    blueBanner.style.display = isDark ? "inline" : "none";
-    whiteBanner.style.display = isDark ? "none" : "inline";
-
+  function updateExpertise() {
+    expertiseCards.forEach(card => card.style.display = "none");
+    for (let i = 0; i < cardsPerView; i++) {
+      const card = expertiseCards[expertiseIndex + i];
+      if (card) card.style.display = "block";
+    }
   }
 
-}
+  window.nextExpertise = function() {
+    expertiseIndex += cardsPerView;
+    if (expertiseIndex >= expertiseCards.length) expertiseIndex = 0;
+    updateExpertise();
+  };
 
-window.matchMedia("(prefers-color-scheme: dark)")
-.addEventListener("change", updateFooterBanner);
+  window.prevExpertise = function() {
+    expertiseIndex -= cardsPerView;
+    if (expertiseIndex < 0) expertiseIndex = expertiseCards.length - cardsPerView;
+    updateExpertise();
+  };
+
+  updateExpertise();
+
+});
 
 
 // ===============================
@@ -345,3 +342,10 @@ particlesJS("particles-js", {
   retina_detect: true
 
 });
+
+
+// ===============================
+// EXPERTISE CARDS SLIDER (2 CARDS)
+// ===============================
+// Initialised inside DOMContentLoaded (see below) so the DOM is ready.
+// nextExpertise / prevExpertise are exposed on window for the HTML buttons.
