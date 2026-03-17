@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="el" data-theme="dark">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Geospatial Projects — Konstantinos Panousis</title>
+  <title>Γεωχωρικά Έργα — Κωνσταντίνος Πανούσης</title>
   <meta name="author" content="Konstantinos Panousis" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +14,12 @@
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
   <style>
-    /* PAGE HEADER */
     .page-header {
       padding: 2.5rem 0 1rem;
       display: flex;
       align-items: center;
       gap: 1rem;
     }
-
     .page-header a {
       color: var(--muted);
       text-decoration: none;
@@ -32,11 +30,7 @@
       gap: 0.4rem;
       transition: color 0.2s;
     }
-
-    .page-header a:hover {
-      color: var(--brand2);
-    }
-
+    .page-header a:hover { color: var(--brand2); }
     .page-header h1 {
       font-size: clamp(1.6rem, 1.4rem + 1.5vw, 2.4rem);
       margin: 0;
@@ -45,8 +39,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-
-    /* COMPANY BADGE */
     .company-badge {
       display: flex;
       align-items: center;
@@ -57,20 +49,17 @@
       padding: 1rem 1.5rem;
       margin-bottom: 2rem;
     }
-
     .company-badge .company-info h3 {
       margin: 0 0 0.2rem;
       font-size: 1rem;
       font-weight: 700;
       color: var(--brand2);
     }
-
     .company-badge .company-info p {
       margin: 0;
       font-size: 0.85rem;
       color: var(--muted);
     }
-
     .company-badge .period {
       margin-left: auto;
       font-size: 0.85rem;
@@ -78,15 +67,12 @@
       color: var(--brand2);
       white-space: nowrap;
     }
-
-    /* PROJECT CARDS */
     .projects-list {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       padding: 1.5rem;
     }
-
     .project-item {
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -97,38 +83,29 @@
       overflow: hidden;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
     }
-
     .project-item:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
       border-color: rgba(0, 210, 255, 0.4);
     }
-
     html[data-theme="light"] .project-item {
       background: #f2f6fb;
       border: 1px solid rgba(0,0,0,0.06);
     }
-
-    /* PROJECT IMAGE */
-    .project-item .proj-image {
+    .projects-geospatial .project-item .proj-image {
       position: relative;
       overflow: hidden;
-      min-height: 180px;
+      height: 180px;
     }
-
-    .project-item .proj-image img {
+    .projects-geospatial .project-item .proj-image img {
       width: 100%;
-      height: 100%;
+      height: 180px;
       object-fit: cover;
       display: block;
       transition: transform 0.3s ease;
+      background: #0b1a3a;
     }
-
-    .project-item:hover .proj-image img {
-      transform: scale(1.05);
-    }
-
-    /* placeholder gradient when no image */
+    .project-item:hover .proj-image img { transform: scale(1.05); }
     .proj-image .placeholder {
       width: 100%;
       height: 100%;
@@ -139,15 +116,12 @@
       justify-content: center;
       font-size: 3rem;
     }
-
-    /* PROJECT CONTENT */
     .project-item .proj-content {
       padding: 1.4rem 1.4rem 1.4rem 0;
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
     }
-
     .proj-content .proj-title {
       font-size: 1.05rem;
       font-weight: 700;
@@ -155,23 +129,14 @@
       margin: 0;
       line-height: 1.3;
     }
-
     .proj-content .proj-desc {
       font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.65;
       margin: 0;
     }
-
-    .proj-content .proj-desc ul {
-      margin: 0.4rem 0 0 1rem;
-      padding: 0;
-    }
-
-    .proj-content .proj-desc ul li {
-      margin-bottom: 0.3rem;
-    }
-
+    .proj-content .proj-desc ul { margin: 0.4rem 0 0 1rem; padding: 0; }
+    .proj-content .proj-desc ul li { margin-bottom: 0.3rem; }
     .proj-tools {
       display: flex;
       flex-wrap: wrap;
@@ -179,30 +144,12 @@
       margin-top: auto;
       padding-top: 0.6rem;
     }
-
-    /* RESPONSIVE */
     @media (max-width: 640px) {
-      .project-item {
-        grid-template-columns: 1fr;
-      }
-
-      .project-item .proj-image {
-        min-height: 140px;
-      }
-
-      .project-item .proj-content {
-        padding: 1rem;
-      }
-
-      .company-badge {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-
-      .company-badge .period {
-        margin-left: 0;
-      }
+      .project-item { grid-template-columns: 1fr; }
+      .project-item .proj-image { min-height: 140px; }
+      .project-item .proj-content { padding: 1rem; }
+      .company-badge { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .company-badge .period { margin-left: 0; }
     }
   </style>
 </head>
@@ -212,142 +159,134 @@
   <div id="particles-js"></div>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-  <!-- NAVBAR -->
   <header class="blur-nav">
     <div class="container nav">
-      <img src="assets/images/companylogo.png" alt="Company Logo" class="logo">
+      <img src="assets/images/companylogo.png" alt="Λογότυπο" class="logo">
       <div class="brand">
         <div>
-          Konstantinos Panousis<br>
-          <small class="muted">GIS & Geospatial Projects</small>
+          Κωνσταντίνος Πανούσης<br>
+          <small class="muted">Γεωχωρικά Έργα</small>
         </div>
       </div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#About">About</a>
-        <a href="index.html#projects">Projects</a>
-        <a class="btn" href="index.html#contact">Contact</a>
+        <a href="el.html">Αρχική</a>
+        <a href="el.html#About">Σχετικά</a>
+        <a href="el.html#projects">Έργα</a>
+        <a class="btn" href="el.html#contact">Επικοινωνία</a>
       </nav>
     </div>
   </header>
 
-<main class="container projects-geospatial">
+  <main class="container projects-geospatial">
 
-    <!-- PAGE HEADER -->
     <div class="page-header">
       <div>
-        <a href="index.html#projects">← Back to Projects</a>
-        <h1>Geospatial Projects</h1>
+        <a href="el.html#projects">← Πίσω στα Έργα</a>
+        <h1>Γεωχωρικά Έργα</h1>
       </div>
     </div>
 
     <div class="card">
 
       <div class="panel-title">
-        <h2>Geospatial & GIS Work</h2>
+        <h2>Γεωχωρικά & GIS Έργα</h2>
       </div>
 
-      <!-- COMPANY BADGE -->
       <div style="padding: 1.5rem 1.5rem 0;">
         <div class="company-badge">
           <div class="company-info">
-            <h3>GIS Analyst — Geoapikonisis S.A.P.G.E.</h3>
-            <p>Athens, Greece</p>
+            <h3>Αναλυτής GIS — Geoapikonisis S.A.P.G.E.</h3>
+            <p>Αθήνα, Ελλάδα</p>
           </div>
-          <div class="period">2019 –  2021</div>
+          <div class="period">2019 – 2021</div>
         </div>
       </div>
 
-      <!-- PROJECTS LIST -->
       <div class="projects-list">
 
-        <!-- PROJECT 1 -->
         <div class="project-item" data-reveal>
           <div class="proj-image">
-            <img src="assets/images/geo_project1_cadastre.jpg" alt="Cadastral Map">
+            <img src="assets/images/geo_project1_cadastre.jpg" alt="Κτηματολόγιο">
           </div>
           <div class="proj-content">
-            <h3 class="proj-title">Hellenic Cadastre – Regional Units of Fthiotida & Evrytania</h3>
+            <h3 class="proj-title">Ελληνικό Κτηματολόγιο – Περιφερειακές Ενότητες Φθιώτιδας & Ευρυτανίας</h3>
             <div class="proj-desc">
               <ul>
-                <li>Processed cadastral spatial datasets and supported mapping workflows for land parcel registration.</li>
-                <li>Performed geospatial data validation and digitization tasks within GIS databases.</li>
+                <li>Επεξεργασία κτηματολογικών χωρικών δεδομένων και υποστήριξη ροών χαρτογράφησης για την καταγραφή αγροτεμαχίων.</li>
+                <li>Εκτέλεση εργασιών επικύρωσης γεωχωρικών δεδομένων και ψηφιοποίησης σε βάσεις δεδομένων GIS.</li>
               </ul>
             </div>
             <div class="proj-tools">
               <span class="badge">ArcGIS</span>
               <span class="badge">QGIS</span>
               <span class="badge">Access DB</span>
-              <span class="badge">Digitization</span>
-              <span class="badge">Data Validation</span>
+              <span class="badge">Ψηφιοποίηση</span>
+              <span class="badge">Επικύρωση Δεδομένων</span>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 2 -->
         <div class="project-item" data-reveal>
           <div class="proj-image">
-            <img src="assets/images/lucas.png" alt="LUCAS Land Use Survey">
+            <img src="assets/images/lucas.png" alt="LUCAS">
           </div>
           <div class="proj-content">
-            <h3 class="proj-title">LUCAS Survey – European Commission</h3>
+            <h3 class="proj-title">Έρευνα LUCAS – Ευρωπαϊκή Επιτροπή</h3>
             <div class="proj-desc">
               <ul>
-                <li>Participated in the Land Use/Cover Area Frame Survey.</li>
-                <li>Supported land use classification and field data validation according to European statistical standards.</li>
+                <li>Συμμετοχή στην έρευνα πλαισίου κάλυψης χρήσης/κάλυψης γης (LUCAS).</li>
+                <li>Υποστήριξη ταξινόμησης χρήσης γης και επικύρωσης δεδομένων πεδίου σύμφωνα με ευρωπαϊκά στατιστικά πρότυπα.</li>
               </ul>
             </div>
             <div class="proj-tools">
               <span class="badge">ArcGIS</span>
               <span class="badge">ArcGIS Online</span>
-              <span class="badge">Land Use Classification</span>
-              <span class="badge">Field Validation</span>
+              <span class="badge">Ταξινόμηση Χρήσης Γης</span>
+              <span class="badge">Επικύρωση Πεδίου</span>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 3 -->
         <div class="project-item" data-reveal>
           <div class="proj-image">
-            <img src="assets/images/urban_atlas.png" alt="Urban Atlas Athens">
+            <img src="assets/images/urban_atlas.png" alt="Urban Atlas">
           </div>
           <div class="proj-content">
-            <h3 class="proj-title">Urban Atlas – Copernicus Land Monitoring Service</h3>
+            <h3 class="proj-title">Urban Atlas – Υπηρεσία Παρακολούθησης Γης Copernicus</h3>
             <div class="proj-desc">
               <ul>
-                <li>Performed land use and land cover digitization for the Attica Functional Urban Area (FUA) using high-resolution orthophotos.</li>
-                <li>Delineated urban land use classes according to Urban Atlas specifications.</li>
-                <li>Produced geospatial datasets supporting European urban monitoring and spatial planning analyses.</li>
+                <li>Ψηφιοποίηση χρήσης και κάλυψης γης για τη Λειτουργική Αστική Περιοχή (FUA) της Αττικής με χρήση ορθοφωτογραφιών υψηλής ανάλυσης.</li>
+                <li>Οριοθέτηση αστικών κλάσεων χρήσης γης σύμφωνα με τις προδιαγραφές Urban Atlas.</li>
+                <li>Παραγωγή γεωχωρικών δεδομένων που υποστηρίζουν ευρωπαϊκή αστική παρακολούθηση και χωρικό σχεδιασμό.</li>
               </ul>
             </div>
             <div class="proj-tools">
               <span class="badge">ArcGIS</span>
-              <span class="badge">Photointerpretation</span>
-              <span class="badge">Land Cover Mapping</span>
+              <span class="badge">Φωτοερμηνεία</span>
+              <span class="badge">Χαρτογράφηση Κάλυψης Γης</span>
               <span class="badge">Anaconda</span>
               <span class="badge">Jupyter</span>
             </div>
           </div>
         </div>
 
-        <!-- PROJECT 4 -->
         <div class="project-item" data-reveal>
           <div class="proj-image">
-            <img src="assets/images/photovoltaic.png" alt="Solar Farm">
+            <img src="assets/images/photovoltaic.png" alt="Φωτοβολταϊκά">
           </div>
           <div class="proj-content">
-            <h3 class="proj-title">Photointerpretation Study for Photovoltaic Park Site Selection</h3>
+            <h3 class="proj-title">Μελέτη Φωτοερμηνείας για Επιλογή Θέσης Φωτοβολταϊκού Πάρκου</h3>
             <div class="proj-desc">
               <ul>
-                <li>Performed GIS-based site selection for photovoltaic park installations using predefined spatial criteria.</li>
-                <li>Evaluated candidate locations through photointerpretation of satellite imagery.</li>
-                <li>Analysed land use and environmental constraints to assess site suitability.</li>
+                <li>Εκτέλεση επιλογής θέσης βάσει GIS για εγκαταστάσεις φωτοβολταϊκών πάρκων χρησιμοποιώντας προκαθορισμένα χωρικά κριτήρια.</li>
+                <li>Αξιολόγηση υποψήφιων θέσεων μέσω φωτοερμηνείας δορυφορικών εικόνων.</li>
+                <li>Ανάλυση χρήσης γης και περιβαλλοντικών περιορισμών για την αξιολόγηση καταλληλότητας θέσης.</li>
               </ul>
             </div>
             <div class="proj-tools">
               <span class="badge">QGIS</span>
-              <span class="badge">Site Selection</span>
-              <span class="badge">Satellite Imagery</span>
+              <span class="badge">Επιλογή Θέσης</span>
+              <span class="badge">Δορυφορικές Εικόνες</span>
             </div>
           </div>
         </div>
@@ -356,7 +295,7 @@
     </div>
 
     <footer>
-      <p>© <span id="y"></span> • Konstantinos Panousis Athens GR</p>
+      <p>© <span id="y"></span> • Κωνσταντίνος Πανούσης Αθήνα</p>
     </footer>
 
   </main>

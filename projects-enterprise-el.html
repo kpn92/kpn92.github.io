@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="el" data-theme="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Εταιρικά Έργα — Κωνσταντίνος Πανούσης</title>
+  <meta name="author" content="Konstantinos Panousis" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+  <style>
+    .page-header { padding: 2.5rem 0 1rem; display: flex; align-items: center; gap: 1rem; }
+    .page-header a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+    .page-header a:hover { color: var(--brand2); }
+    .page-header h1 { font-size: clamp(1.6rem, 1.4rem + 1.5vw, 2.4rem); margin: 0; background: linear-gradient(135deg, var(--text) 0%, var(--brand2) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .company-block { margin-bottom: 2.5rem; }
+    .company-badge { display: flex; align-items: center; gap: 1rem; background: rgba(11, 92, 255, 0.08); border: 1px solid rgba(11, 92, 255, 0.25); border-radius: var(--radius); padding: 1rem 1.5rem; margin-bottom: 1.5rem; }
+    .company-badge .company-info h3 { margin: 0 0 0.2rem; font-size: 1rem; font-weight: 700; color: var(--brand2); }
+    .company-badge .company-info p { margin: 0; font-size: 0.85rem; color: var(--muted); }
+    .company-badge .period { margin-left: auto; font-size: 0.85rem; font-weight: 600; color: var(--brand2); white-space: nowrap; }
+    .projects-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .project-item { display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem; background: rgba(8, 14, 28, 0.6); border: 1px solid rgba(0, 210, 255, 0.15); border-radius: var(--radius); overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease; }
+    .project-item:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45); border-color: rgba(0, 210, 255, 0.4); }
+    html[data-theme="light"] .project-item { background: #f2f6fb; border: 1px solid rgba(0,0,0,0.06); }
+    .projects-enterprise .project-item .proj-image { position: relative; overflow: hidden; height: 180px; }
+    .projects-enterprise .project-item .proj-image img { width: 100%; height: 180px; object-fit: cover; display: block; transition: transform 0.3s ease; background: #0b1a3a; }
+    .project-item:hover .proj-image img { transform: scale(1.05); }
+    .proj-image .placeholder { width: 100%; height: 100%; min-height: 180px; background: linear-gradient(135deg, #0b1a3a 0%, #0b3a6a 50%, #0b1a3a 100%); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .project-item .proj-content { padding: 1.4rem 1.4rem 1.4rem 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .proj-content .proj-title { font-size: 1.05rem; font-weight: 700; color: var(--brand2); margin: 0; line-height: 1.3; }
+    .proj-content .proj-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin: 0; }
+    .proj-content .proj-desc ul { margin: 0.4rem 0 0 1rem; padding: 0; }
+    .proj-content .proj-desc ul li { margin-bottom: 0.3rem; }
+    .proj-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.6rem; }
+    .company-divider { border: none; border-top: 1px solid color-mix(in oklab, var(--panel) 70%, transparent); margin: 2.5rem 0; }
+    @media (max-width: 640px) {
+      .project-item { grid-template-columns: 1fr; }
+      .project-item .proj-image { min-height: 140px; }
+      .project-item .proj-content { padding: 1rem; }
+      .company-badge { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .company-badge .period { margin-left: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <header class="blur-nav">
+    <div class="container nav">
+      <img src="assets/images/companylogo.png" alt="Λογότυπο" class="logo">
+      <div class="brand">
+        <div>
+          Κωνσταντίνος Πανούσης<br>
+          <small class="muted">Εταιρικά Έργα</small>
+        </div>
+      </div>
+      <nav>
+        <a href="el.html">Αρχική</a>
+        <a href="el.html#About">Σχετικά</a>
+        <a href="el.html#projects">Έργα</a>
+        <a class="btn" href="el.html#contact">Επικοινωνία</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container projects-enterprise">
+
+    <div class="page-header">
+      <div>
+        <a href="el.html#projects">← Πίσω στα Έργα</a>
+        <h1>Εταιρικά Έργα</h1>
+      </div>
+    </div>
+
+    <div class="card">
+
+      <div class="panel-title">
+        <h2>Εταιρικά & Βάσεις Δεδομένων</h2>
+      </div>
+
+      <div style="padding: 1.5rem;">
+
+        <!-- OPENCOMM -->
+        <div class="company-block">
+          <div class="company-badge">
+            <div class="company-info">
+              <h3>Προγραμματιστής Βάσεων Δεδομένων — Opencomm</h3>
+              <p>Αθήνα, Ελλάδα</p>
+            </div>
+            <div class="period">2024 – 2025</div>
+          </div>
+          <div class="projects-list">
+            <div class="project-item" data-reveal>
+              <div class="proj-image"><div class="placeholder">🗄️</div></div>
+              <div class="proj-content">
+                <h3 class="proj-title">Ανάπτυξη & Βελτιστοποίηση SQL Server</h3>
+                <div class="proj-desc">
+                  <ul>
+                    <li>Ανάπτυξη και βελτιστοποίηση αποθηκευμένων διαδικασιών SQL Server και λογικής μετασχηματισμού δεδομένων για εφαρμογές πελατών.</li>
+                    <li>Τροποποίηση και επέκταση αποθηκευμένων διαδικασιών για υποστήριξη εξελισσόμενων επιχειρησιακών κανόνων.</li>
+                    <li>Δημιουργία προσαρμοσμένων αναφορών βάσει επιχειρησιακών αναγκών πελατών.</li>
+                    <li>Αυτοματοποίηση ρουτινών με χρήση δυναμικής SQL, ελέγχων επικύρωσης και λογικής διαχείρισης σφαλμάτων.</li>
+                    <li>Βελτίωση απόδοσης ερωτημάτων και αποθηκευμένων διαδικασιών σε μεγάλους πίνακες μέσω συντονισμού ευρετηρίων.</li>
+                    <li>Δημιουργία εσωτερικής τεκμηρίωσης που περιγράφει πίνακες, αποθηκευμένες διαδικασίες και ροές δεδομένων.</li>
+                  </ul>
+                </div>
+                <div class="proj-tools">
+                  <span class="badge">SQL Server</span>
+                  <span class="badge">T-SQL</span>
+                  <span class="badge">Stored Procedures</span>
+                  <span class="badge">Dynamic SQL</span>
+                  <span class="badge">Index Tuning</span>
+                  <span class="badge">Reporting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="company-divider">
+
+        <!-- SOFTONE -->
+        <div class="company-block">
+          <div class="company-badge">
+            <div class="company-info">
+              <h3>Τεχνικός Σύμβουλος WMS — SoftOne Technologies A.E.</h3>
+              <p>Αθήνα, Ελλάδα</p>
+            </div>
+            <div class="period">2023 – 2024</div>
+          </div>
+          <div class="projects-list">
+            <div class="project-item" data-reveal>
+              <div class="proj-image"><div class="placeholder">🏭</div></div>
+              <div class="proj-content">
+                <h3 class="proj-title">Ενοποίηση WMS–ERP & Αναφορές Αποθήκης</h3>
+                <div class="proj-desc">
+                  <ul>
+                    <li>Συμμετοχή σε εργασίες ενοποίησης WMS–ERP, διασφαλίζοντας συνεπείς ροές δεδομένων και αξιόπιστη επικοινωνία μεταξύ συστημάτων.</li>
+                    <li>Εργασία με πίνακες μεγάλου όγκου και βελτιστοποίηση ερωτημάτων αναφορών για βελτίωση ταχύτητας εκτέλεσης.</li>
+                    <li>Ανάπτυξη ερωτημάτων SQL και views για παράδοση KPI και μετρικών απόδοσης αποθήκης σε πραγματικό χρόνο.</li>
+                    <li>Μετάφραση ροών εργασίας logistics σε SQL ρουτίνες που ενίσχυσαν την ακρίβεια αποθέματος.</li>
+                  </ul>
+                </div>
+                <div class="proj-tools">
+                  <span class="badge">SQL Server</span>
+                  <span class="badge">T-SQL</span>
+                  <span class="badge">WMS</span>
+                  <span class="badge">ERP Integration</span>
+                  <span class="badge">KPI Reporting</span>
+                  <span class="badge">Query Optimization</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="company-divider">
+
+        <!-- ENTERSOFT -->
+        <div class="company-block">
+          <div class="company-badge">
+            <div class="company-info">
+              <h3>Τεχνικός Σύμβουλος Εφοδιαστικής Αλυσίδας — Entersoft A.E.</h3>
+              <p>Αθήνα, Ελλάδα</p>
+            </div>
+            <div class="period">2022 – 2023</div>
+          </div>
+          <div class="projects-list">
+            <div class="project-item" data-reveal>
+              <div class="proj-image"><div class="placeholder">📦</div></div>
+              <div class="proj-content">
+                <h3 class="proj-title">Αυτοματοποίηση Δεδομένων Εφοδιαστικής & Αναφορές</h3>
+                <div class="proj-desc">
+                  <ul>
+                    <li>Δημιουργία και βελτιστοποίηση views SQL Server για βελτίωση της προσβασιμότητας και απεικόνισης επιχειρησιακών δεδομένων WMS.</li>
+                    <li>Αυτοματοποίηση επαναλαμβανόμενων ροών εργασίας δεδομένων με SQL και VBScript, μειώνοντας τον χρόνο χειροκίνητης επεξεργασίας.</li>
+                    <li>Βελτιστοποίηση ερωτημάτων αναφορών υψηλής κίνησης για βελτίωση ταχύτητας εκτέλεσης σε καθημερινή χρήση.</li>
+                    <li>Ανάπτυξη προσαρμοσμένων αναφορών διαχείρισης που υποστηρίζουν παρακολούθηση σε πραγματικό χρόνο και λήψη αποφάσεων βάσει δεδομένων.</li>
+                  </ul>
+                </div>
+                <div class="proj-tools">
+                  <span class="badge">SQL Server</span>
+                  <span class="badge">T-SQL</span>
+                  <span class="badge">VBScript</span>
+                  <span class="badge">WMS</span>
+                  <span class="badge">Views</span>
+                  <span class="badge">Αυτοματοποίηση</span>
+                  <span class="badge">Reporting</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <p>© <span id="y"></span> • Κωνσταντίνος Πανούσης Αθήνα</p>
+    </footer>
+
+  </main>
+
+  <script src="assets/js/script.js"></script>
+
+</body>
+</html>

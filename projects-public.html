@@ -1,61 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
-    <script>
-      // Set theme from localStorage for consistency
-      (function() {
-        var theme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-      })();
-    </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Public Sector Projects</title>
+  <title>Public Sector Projects — Konstantinos Panousis</title>
+  <meta name="author" content="Konstantinos Panousis" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+  <style>
+    .page-header {
+      padding: 2.5rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .page-header a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .page-header a:hover { color: var(--brand2); }
+
+    .page-header h1 {
+      font-size: clamp(1.6rem, 1.4rem + 1.5vw, 2.4rem);
+      margin: 0;
+      background: linear-gradient(135deg, var(--text) 0%, var(--brand2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .company-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .company-badge {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(11, 92, 255, 0.08);
+      border: 1px solid rgba(11, 92, 255, 0.25);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .company-badge .company-info h3 {
+      margin: 0 0 0.2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brand2);
+    }
+
+    .company-badge .company-info p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .company-badge .period {
+      margin-left: auto;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand2);
+      white-space: nowrap;
+    }
+
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+      background: rgba(8, 14, 28, 0.6);
+      border: 1px solid rgba(0, 210, 255, 0.15);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      border-color: rgba(0, 210, 255, 0.4);
+    }
+
+    html[data-theme="light"] .project-item {
+      background: #f2f6fb;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .projects-public .project-item .proj-image {
+      position: relative;
+      overflow: hidden;
+      height: 180px;
+    }
+
+    .projects-public .project-item .proj-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+      background: #0b1a3a;
+    }
+
+    .project-item:hover .proj-image img {
+      transform: scale(1.05);
+    }
+
+    .proj-image .placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 180px;
+      background: linear-gradient(135deg, #0b1a3a 0%, #0b3a6a 50%, #0b1a3a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .project-item .proj-content {
+      padding: 1.4rem 1.4rem 1.4rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .proj-content .proj-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--brand2);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .proj-content .proj-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .proj-content .proj-desc ul {
+      margin: 0.4rem 0 0 1rem;
+      padding: 0;
+    }
+
+    .proj-content .proj-desc ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .proj-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: auto;
+      padding-top: 0.6rem;
+    }
+
+    @media (max-width: 640px) {
+      .project-item {
+        grid-template-columns: 1fr;
+      }
+      .project-item .proj-image {
+        min-height: 140px;
+      }
+      .project-item .proj-content {
+        padding: 1rem;
+      }
+      .company-badge {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .company-badge .period {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
+  <div id="particles-js"></div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
   <header class="blur-nav">
     <div class="container nav">
-      <a href="index.html" class="logo-link"><img src="assets/images/companylogo.png" alt="Company Logo" class="logo"></a>
+      <img src="assets/images/companylogo.png" alt="Company Logo" class="logo">
       <div class="brand">
-        <div>Public Sector<br><small class="muted">Government Systems</small></div>
+        <div>
+          Konstantinos Panousis<br>
+          <small class="muted">Public Sector Projects</small>
+        </div>
       </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#About">About</a>
+        <a href="index.html#projects">Projects</a>
+        <a class="btn" href="index.html#contact">Contact</a>
+      </nav>
     </div>
   </header>
-  <main class="container">
-      <a href="#" onclick="window.location.href='index.html#projects'; return false;" class="btn ghost" style="margin: 1.5rem 0 0 0; display: inline-block;">&larr; Back</a>
-    <section class="card">
-      <h2>Public Sector Projects</h2>
-      <div class="project-list">
-        <div class="project-card special">
-          <h3>Project: National Pension System Data Migration from Legacy funds to EFKA</h3>
-          <ul>
-            <li>Working on large-scale data migration of pension beneficiaries from multiple legacy funds into a unified national pension system.</li>
-            <li>Implementing and maintaining SQL/PLSQL transformation logic to load migrated data into production systems.</li>
-            <li>Performing rule-based validation and reconciliation checks to ensure data accuracy and consistency.</li>
-            <li>Debugging data and logic issues in migration workflows and supporting post-migration maintenance of core entities.</li>
-          </ul>
-        </div>
-        <div class="project-card">
-          <h3>Information System Implementation</h3>
-          <p>Implemented government information systems for public services.</p>
-        </div>
-        <div class="project-card">
-          <h3>Reporting & Analytics</h3>
-          <p>Developed reporting solutions for public sector decision-making.</p>
-        </div>
+
+  <main class="container projects-public">
+
+    <div class="page-header">
+      <div>
+        <a href="index.html#projects">← Back to Projects</a>
+        <h1>Public Sector Projects</h1>
       </div>
-    </section>
+    </div>
+
+    <div class="card">
+
+      <div class="panel-title">
+        <h2>Public Sector & Government Work</h2>
+      </div>
+
+      <div style="padding: 1.5rem;">
+
+        <!-- NETCOMPANY -->
+        <div class="company-block">
+          <div class="company-badge">
+            <div class="company-info">
+              <h3>Database Engineer — Netcompany</h3>
+              <p>Athens, Greece</p>
+            </div>
+            <div class="period">2025 – Present</div>
+          </div>
+
+          <div class="projects-list">
+            <div class="project-item" data-reveal>
+              <div class="proj-image">
+                <div class="placeholder">🏛️</div>
+              </div>
+              <div class="proj-content">
+                <h3 class="proj-title">National Pension System Data Migration – EFKA</h3>
+                <div class="proj-desc">
+                  <ul>
+                    <li>Working on large-scale data migration of pension beneficiaries from multiple legacy funds into a unified national pension system.</li>
+                    <li>Implementing and maintaining SQL/PL-SQL transformation logic to load migrated data into production systems.</li>
+                    <li>Performing rule-based validation and reconciliation checks to ensure data accuracy and consistency.</li>
+                    <li>Debugging data and logic issues in migration workflows and supporting post-migration maintenance of core entities.</li>
+                  </ul>
+                </div>
+                <div class="proj-tools">
+                  <span class="badge">Oracle DB</span>
+                  <span class="badge">PL/SQL</span>
+                  <span class="badge">Data Migration</span>
+                  <span class="badge">Data Validation</span>
+                  <span class="badge">Reconciliation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      <p>© <span id="y"></span> • Konstantinos Panousis Athens GR</p>
+    </footer>
+
   </main>
+
+  <script src="assets/js/script.js"></script>
+
 </body>
-</html>
-<script>
-// Ensure smooth scroll to #projects after navigation
-if (window.location.hash === '#projects') {
-  window.addEventListener('DOMContentLoaded', function() {
-    var el = document.getElementById('projects');
-    if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
-  });
-}
-</script>
 </html>

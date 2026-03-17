@@ -1,362 +1,343 @@
-```html
 <!DOCTYPE html>
-<html lang="el" data-theme="auto">
+<html lang="el" data-theme="dark">
 
 <head>
 
-<script src="https://cdn.userway.org/widget.js" data-account="YOUR_ID"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Κωνσταντίνος Πανούσης — Μηχανικός Βάσεων Δεδομένων</title>
+  <meta name="author" content="Konstantinos Panousis" />
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Μηχανικός Λύσεων Δεδομένων με εξειδίκευση σε συστήματα βάσεων δεδομένων, μηχανική δεδομένων και ανάλυση. Δημιουργία αξιόπιστων λύσεων δεδομένων." />
 
-<title>Konstantinos Panousis — Μηχανικός Δεδομένων</title>
+  <meta name="keywords"
+    content="Μηχανικός Δεδομένων, Βάσεις Δεδομένων, SQL, T-SQL, PL/SQL, SQL Server, PostgreSQL, MySQL, ETL, Data Migration, Power BI" />
 
-<meta name="description"
-content="Μηχανικός δεδομένων με εξειδίκευση σε συστήματα βάσεων δεδομένων, data engineering και analytics. Δημιουργία αξιόπιστων λύσεων δεδομένων και μετατροπή σύνθετων δεδομένων σε χρήσιμες πληροφορίες." />
+  <meta name="theme-color" content="#0b5cff">
+  <meta name="theme-color" content="#0b5cff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0b0f1a" media="(prefers-color-scheme: dark)" />
 
-<link rel="alternate" hreflang="en" href="index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Κωνσταντίνος Πανούσης — Μηχανικός Λύσεων Δεδομένων">
+  <meta property="og:description" content="Μηχανικός Λύσεων Δεδομένων με εξειδίκευση σε συστήματα βάσεων δεδομένων.">
+  <meta property="og:image" content="https://Konstantinospanousis/og-image.png">
+  <meta property="og:url" content="https://Konstantinospanousis.com">
+  <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon"
-href="assets/images/favicon.ico"
-type="image/x-icon">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="site.webmanifest">
 
-<link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/css/style.css" as="style">
+  <link rel="preload" href="assets/js/script.js" as="script">
 
-<link rel="preload" href="assets/css/style.css" as="style">
-<link rel="preload" href="assets/js/script.js" as="script">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script src="https://cdn.userway.org/widget.js" data-account="YOUR_ID"></script>
 
 </head>
 
 
 <body>
 
-<header class="blur-nav">
-<div class="container nav">
+  <div id="particles-js"></div>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-<img src="assets/images/companylogo.png" alt="Company Logo" class="logo">
+  <!-- NAVBAR -->
+  <header class="blur-nav">
+
+    <div class="container nav">
+
+      <img src="assets/images/companylogo.png" alt="Λογότυπο" class="logo">
+
+      <div class="brand">
+        <div>
+          Κωνσταντίνος Πανούσης<br>
+          <small class="muted profession" id="profession">
+            Μηχανικός Λύσεων Δεδομένων
+          </small>
+        </div>
+      </div>
+
+      <nav>
+
+        <a href="#Home">Αρχική</a>
+        <a href="#About">Σχετικά</a>
+        <a href="#projects">Έργα</a>
+
+        <div class="lang-switch">
+          <a href="index.html">EN</a>
+          <span>|</span>
+          <a class="active" href="el.html">ΕΛ</a>
+        </div>
+
+        <div class="theme-switch-wrapper">
+
+          <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+            <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2" />
+            <g stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="4" />
+              <line x1="12" y1="20" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
+              <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="4" y2="12" />
+              <line x1="20" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
+              <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
+            </g>
+          </svg>
+
+          <div class="theme-switch">
+            <input type="checkbox" id="themeSwitch" class="theme-switch__input">
+            <label for="themeSwitch" class="theme-switch__label"></label>
+          </div>
+
+          <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3
+              7 7 0 0 0 21 12.8z" fill="none" stroke="currentColor" stroke-width="2" />
+          </svg>
+
+        </div>
+
+        <a class="btn" href="#contact">Επικοινωνία</a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section id="Home" class="hero card">
+
+      <div class="left" data-reveal>
+
+        <div class="eyebrow">
+          Δεδομένα που εμπιστεύεσαι.<br>
+          Αποφάσεις με σιγουριά.
+        </div>
+
+        <h1>
+          Γεια, είμαι ο Κωνσταντίνος,<br>
+          Σχεδιάζω αξιόπιστες λύσεις δεδομένων.
+        </h1>
+
+        <h2 class="expertise-title">ΤΟΜΕΙΣ ΕΞΕΙΔΙΚΕΥΣΗΣ</h2>
+
+        <div class="expertise-areas">
+
+          <div class="expertise-area">
+            <h3>Μηχανική Βάσεων Δεδομένων</h3>
+            <div class="badges">
+              <span class="badge">Microsoft SQL Server</span>
+              <span class="badge">T-SQL</span>
+              <span class="badge">PL/SQL</span>
+              <span class="badge">PostgreSQL</span>
+              <span class="badge">MySQL</span>
+              <span class="badge">Azure SQL</span>
+            </div>
+          </div>
+
+          <div class="expertise-area">
+            <h3>Μηχανική & Ενοποίηση Δεδομένων</h3>
+            <div class="badges">
+              <span class="badge">ETL Pipelines</span>
+              <span class="badge">Μετανάστευση Δεδομένων</span>
+              <span class="badge">Ενοποίηση Δεδομένων</span>
+              <span class="badge">Επικύρωση Δεδομένων</span>
+              <span class="badge">SSIS</span>
+              <span class="badge">Python</span>
+            </div>
+          </div>
+
+          <div class="expertise-area">
+            <h3>Μοντελοποίηση & Απόδοση</h3>
+            <div class="badges">
+              <span class="badge">Μοντελοποίηση Δεδομένων</span>
+              <span class="badge">Βελτιστοποίηση Ερωτημάτων</span>
+              <span class="badge">Performance Tuning</span>
+              <span class="badge">Index Optimization</span>
+              <span class="badge">Execution Plan Analysis</span>
+            </div>
+          </div>
+
+          <div class="expertise-area">
+            <h3>Αναλυτική & Αναφορές</h3>
+            <div class="badges">
+              <span class="badge">Power BI</span>
+              <span class="badge">SSRS</span>
+              <span class="badge">Crystal Reports</span>
+            </div>
+          </div>
 
-<div class="brand">
-<div>
-Konstantinos Panousis<br>
-<small class="muted profession">Μηχανικός Δεδομένων</small>
-</div>
-</div>
+          <div class="expertise-area">
+            <h3>Εταιρικά Συστήματα</h3>
+            <div class="badges">
+              <span class="badge">ERP Data Systems</span>
+              <span class="badge">WMS Data Systems</span>
+              <span class="badge">CRM Data Systems</span>
+              <span class="badge">Εταιρικές Ροές Δεδομένων</span>
+              <span class="badge">Cross-System Integration</span>
+            </div>
+          </div>
 
-<nav>
+          <div class="expertise-area">
+            <h3>Γεωχωρικά Δεδομένα</h3>
+            <div class="badges">
+              <span class="badge">GIS</span>
+              <span class="badge">Διαχείριση Γεωχωρικών Δεδομένων</span>
+              <span class="badge">Χωρική Ανάλυση</span>
+              <span class="badge">Τηλεπισκόπηση</span>
+            </div>
+          </div>
 
-<a href="#Home">Αρχική</a>
-<a href="#About">Σχετικά</a>
-<a href="#projects">Έργα</a>
-
-<div class="lang-switch">
-<a href="index.html">EN</a>
-<span>|</span>
-<a class="active" href="el.html">GR</a>
-</div>
+        </div>
 
-<div class="theme-switch-wrapper">
-
-<svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-<circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
-</svg>
-
-<div class="theme-switch">
-<input type="checkbox" id="themeSwitch" class="theme-switch__input">
-<label for="themeSwitch" class="theme-switch__label"></label>
-</div>
-
-<svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
-<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"
-fill="none"
-stroke="currentColor"
-stroke-width="2"/>
-</svg>
-
-</div>
-
-<a class="btn" href="#contact">Επικοινωνία</a>
-
-</nav>
-</div>
-</header>
-
-
-
-<main class="container">
-
-<section id="Home" class="hero card">
+        <div class="expertise-nav">
+          <button onclick="prevExpertise()" class="btn ghost">← Προηγ.</button>
+          <button onclick="nextExpertise()" class="btn">Επόμ. →</button>
+        </div>
 
-<div class="left" data-reveal>
+      </div>
 
-<div class="eyebrow">
-Δημιουργήστε δεδομένα που μπορείτε να εμπιστευτείτε.<br>
-Λάβετε αποφάσεις με σιγουριά.
-</div>
+      <div class="hero-img">
 
-<h1>
-Γεια σας, είμαι ο Konstantinos,<br>
-σχεδιάζω αξιόπιστες λύσεις δεδομένων.
-</h1>
+        <img src="assets/images/kpn_photo.jpg" alt="Κωνσταντίνος Πανούσης">
 
-<h2 class="expertise-title">ΤΟΜΕΙΣ ΕΞΕΙΔΙΚΕΥΣΗΣ</h2>
+        <div class="hero-metrics">
+          <div class="metric">
+            <b data-target="7">0</b>
+            <span>Χρόνια Εμπειρίας</span>
+          </div>
+        </div>
 
+        <a class="btn2" href="#projects">
+          Δες τα Έργα
+        </a>
 
-<div class="expertise-areas">
+      </div>
 
-<div class="expertise-area">
-<h3>Μηχανική Βάσεων Δεδομένων</h3>
-<div class="badges">
-<span class="badge">Microsoft SQL Server</span>
-<span class="badge">T-SQL</span>
-<span class="badge">PL/SQL</span>
-<span class="badge">PostgreSQL</span>
-<span class="badge">MySQL</span>
-<span class="badge">Azure SQL</span>
-</div>
-</div>
+    </section>
 
 
-<div class="expertise-area">
-<h3>Data Engineering & Integration</h3>
-<div class="badges">
-<span class="badge">ETL Pipelines</span>
-<span class="badge">Data Migration</span>
-<span class="badge">Data Integration</span>
-<span class="badge">Data Validation</span>
-<span class="badge">SSIS</span>
-<span class="badge">Python</span>
-</div>
-</div>
+    <!-- ABOUT -->
+    <section id="About" class="card" data-reveal>
 
+      <div class="panel-title">
+        <h2>Σχετικά</h2>
+      </div>
 
-<div class="expertise-area">
-<h3>Μοντελοποίηση & Απόδοση Δεδομένων</h3>
-<div class="badges">
-<span class="badge">Data Modeling</span>
-<span class="badge">Query Optimization</span>
-<span class="badge">Performance Tuning</span>
-<span class="badge">Index Optimization</span>
-<span class="badge">Execution Plan Analysis</span>
-</div>
-</div>
+      <div class="about">
+        <p>Επαγγελματίας τεχνολογίας με εξειδίκευση στη μηχανική δεδομένων, τα συστήματα βάσεων δεδομένων και τις εφαρμογές βασισμένες σε δεδομένα. Κάτοχος δύο μεταπτυχιακών τίτλων σπουδών στη Γεωπληροφορική και τη Διαχείριση Εφοδιαστικής Αλυσίδας, συνδυάζοντας ισχυρή αναλυτική σκέψη με τεχνική εμπειρογνωμοσύνη σε πολύπλοκα πληροφοριακά συστήματα.</p>
 
+        <p>Έμπειρος σε εταιρικά περιβάλλοντα πληροφορικής, συμβάλλοντας σε ροές επεξεργασίας δεδομένων, λειτουργίες βάσεων δεδομένων και υλοποιήσεις εταιρικών συστημάτων σε πλατφόρμες ERP, CRM και WMS. Εξειδικευμένος στην εργασία με δομημένα δεδομένα, υποστηρίζοντας διαδικασίες ενοποίησης, επικύρωσης και βελτιστοποίησης απόδοσης.</p>
 
-<div class="expertise-area">
-<h3>Analytics & Reporting</h3>
-<div class="badges">
-<span class="badge">Power BI</span>
-<span class="badge">SSRS</span>
-<span class="badge">Crystal Reports</span>
-</div>
-</div>
+        <p>Προγενέστερη εμπειρία περιλαμβάνει συμμετοχή σε γεωχωρικά και περιβαλλοντικά έργα παρακολούθησης στο πλαίσιο ευρωπαϊκών πρωτοβουλιών όπως το πρόγραμμα LUCAS και το Urban Atlas, υποστηρίζοντας ανάλυση χρήσης γης και επεξεργασία χωρικών δεδομένων.</p>
 
+        <p>Ενδιαφέρεται για τη δημιουργία αξιόπιστων συστημάτων δεδομένων που υποστηρίζουν τη λήψη αποφάσεων μέσω αναλυτικής, γεωχωρικών τεχνολογιών και σύγχρονης υποδομής δεδομένων.</p>
+      </div>
 
-<div class="expertise-area">
-<h3>Enterprise Systems</h3>
-<div class="badges">
-<span class="badge">ERP Data Systems</span>
-<span class="badge">WMS Data Systems</span>
-<span class="badge">CRM Data Systems</span>
-<span class="badge">Enterprise Data Workflows</span>
-<span class="badge">Cross-System Data Integration</span>
-</div>
-</div>
+    </section>
 
 
-<div class="expertise-area">
-<h3>Γεωχωρικά Δεδομένα</h3>
-<div class="badges">
-<span class="badge">GIS</span>
-<span class="badge">Geospatial Data Management</span>
-<span class="badge">Spatial Data Analysis</span>
-<span class="badge">Remote Sensing</span>
-</div>
-</div>
+    <!-- PROJECTS -->
+    <section id="projects" class="card" data-reveal>
 
-</div>
+      <div class="panel-title">
+        <h2>Έργα</h2>
+      </div>
 
+      <div class="project-categories">
 
-<div class="expertise-nav">
-<button onclick="prevExpertise()" class="btn ghost">Προηγούμενο</button>
-<button onclick="nextExpertise()" class="btn">Επόμενο</button>
-</div>
+        <div class="category-card" onclick="window.location.href='projects-enterprise-el.html'">
+          <img src="assets/images/enterprise_logo2.png" alt="Εταιρικά Έργα">
+          <div class="card-hover-text">Δες τα Έργα</div>
+        </div>
 
-</div>
+        <div class="category-card" onclick="window.location.href='projects-geospatial-el.html'">
+          <img src="assets/images/geospatial_logo (2).png" alt="Γεωχωρικά Έργα">
+          <div class="card-hover-text">Δες τα Έργα</div>
+        </div>
 
+        <div class="category-card" onclick="window.location.href='projects-public-el.html'">
+          <img src="assets/images/public_sector_logo2.png" alt="Έργα Δημοσίου Τομέα">
+          <div class="card-hover-text">Δες τα Έργα</div>
+        </div>
 
+      </div>
 
-<div class="hero-img">
+    </section>
 
-<img src="assets/images/kpn_photo.jpg" alt="Konstantinos Panousis" />
 
-<div class="hero-metrics">
-<div class="metric">
-<b data-target="7">0</b>
-<span>Χρόνια Εμπειρίας</span>
-</div>
-</div>
+    <!-- CONTACT -->
+    <section id="contact" class="card" data-reveal>
 
-<a class="btn2" href="#projects">Δείτε τα Έργα</a>
+      <div class="panel-title">
+        <h2>Επικοινωνία</h2>
+      </div>
 
-</div>
+      <div class="contact">
 
-</section>
+        <form onsubmit="sendEmail(event)">
 
+          <label>
+            <span>Όνομα</span>
+            <input name="name" placeholder="Το όνομά σας" required>
+          </label>
 
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
 
-<section id="About" class="card" data-reveal>
+          <label>
+            <span>Μήνυμα</span>
+            <textarea name="message" rows="5" placeholder="Πείτε μου για το έργο σας…" required></textarea>
+          </label>
 
-<div class="panel-title">
-<h2>Σχετικά</h2>
-</div>
+          <button class="btn" type="submit">
+            Αποστολή Μηνύματος
+          </button>
 
-<div class="about">
-<div>
+          <div class="success-message" id="success-message">
+            Το μήνυμα εστάλη επιτυχώς!
+          </div>
 
-<p>
-Επαγγελματίας στον χώρο της τεχνολογίας με εξειδίκευση στο data engineering,
-στα συστήματα βάσεων δεδομένων και στις data-driven εφαρμογές.
-</p>
+        </form>
 
-<p>
-Κάτοχος δύο μεταπτυχιακών τίτλων σπουδών στη Γεωπληροφορική
-και στη Διοίκηση Εφοδιαστικής Αλυσίδας,
-συνδυάζοντας αναλυτική σκέψη με τεχνική εμπειρία σε σύνθετα πληροφοριακά συστήματα.
-</p>
+      </div>
 
-<p>
-Εμπειρία σε εταιρικά περιβάλλοντα πληροφορικής,
-συμβάλλοντας σε data processing workflows,
-database operations και enterprise system implementations
-σε πλατφόρμες ERP, CRM και WMS.
-</p>
+    </section>
 
-<p>
-Προηγούμενη εμπειρία περιλαμβάνει συμμετοχή
-σε ευρωπαϊκά προγράμματα γεωχωρικής ανάλυσης
-όπως τα LUCAS και Urban Atlas,
-υποστηρίζοντας ανάλυση χρήσεων γης και spatial data processing.
-</p>
 
-<p>
-Ενδιαφέρομαι για τη δημιουργία αξιόπιστων data systems
-που υποστηρίζουν analytics,
-γεωχωρικές τεχνολογίες
-και σύγχρονες data infrastructures.
-</p>
+    <!-- FOOTER -->
+    <footer>
 
-</div>
-</div>
+      <div class="footer-banners">
+        <a href="https://greece20.gov.gr" target="_blank" rel="noopener">
+          <img class="banner-blue" src="assets/images/scale-up-banner-blue.png">
+          <img class="banner-white" src="assets/images/scale-up-banner-white.png">
+        </a>
+      </div>
 
-</section>
+      <p>
+        © <span id="y"></span> • Κωνσταντίνος Πανούσης Αθήνα
+      </p>
 
+    </footer>
 
+  </main>
 
-<section id="projects" class="card" data-reveal>
-
-<div class="panel-title">
-<h2>Έργα</h2>
-</div>
-
-<div class="grid pad">
-
-<article class="proj col-6 card">
-
-<h3>Αυτοματοποιημένη Ενσωμάτωση Flat Files σε CRM</h3>
-
-<p>
-Σχεδίαση stored procedures σε SQL Server για εισαγωγή δεδομένων
-από flat files σε CRM σύστημα,
-με διαδικασίες parsing, validation και transformation
-ώστε να εξασφαλίζεται καθαρό και συνεπές dataset.
-</p>
-
-</article>
-
-
-<article class="proj col-6 card">
-
-<h3>Τεχνική Υποστήριξη WMS</h3>
-
-<p>
-Ανάπτυξη custom reports και automation scripts
-για πελάτες WMS,
-βελτιώνοντας τις διαδικασίες αποθήκης
-και την επιχειρησιακή πληροφόρηση.
-</p>
-
-</article>
-
-</div>
-
-</section>
-
-
-
-<section id="contact" class="card" data-reveal>
-
-<div class="panel-title">
-<h2>Επικοινωνία</h2>
-<small class="muted">Διαθέσιμος για συνεργασίες και έργα</small>
-</div>
-
-<div class="contact">
-
-<form onsubmit="sendEmail(event)">
-
-<label>
-<span>Όνομα</span>
-<input name="name" placeholder="Το όνομά σας" required>
-</label>
-
-<label>
-<span>Email</span>
-<input type="email" name="email" placeholder="you@example.com" required>
-</label>
-
-<label>
-<span>Μήνυμα</span>
-<textarea name="message" rows="5" placeholder="Πείτε μου για το project σας…" required></textarea>
-</label>
-
-<button class="btn" type="submit">Αποστολή Μηνύματος</button>
-
-<div class="success-message" id="success-message">
-Το μήνυμα στάλθηκε επιτυχώς! Θα επικοινωνήσω μαζί σας σύντομα.
-</div>
-
-</form>
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-<div class="footer-banners">
-<a href="https://greece20.gov.gr" target="_blank" rel="noopener">
-<img class="banner-blue" src="assets/images/scale-up-banner-blue.png"/>
-<img class="banner-white" src="assets/images/scale-up-banner-white.png"/>
-</a>
-</div>
-
-<p>© <span id="y"></span> • Konstantinos Panousis Athens GR</p>
-
-</footer>
-
-
-</main>
-
-<script src="assets/js/script.js" defer></script>
+  <script src="assets/js/script.js"></script>
 
 </body>
+
 </html>
-```
