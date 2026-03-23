@@ -267,10 +267,17 @@ h1 {
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 
+/*
 .hero-img img:hover {
   transform: scale(1.03);
   filter: hue-rotate(190deg) saturate(0.95) brightness(1);
+}*/
+
+.hero-img img:hover {
+  transform: scale(1.03);
+  filter: brightness(1) contrast(1.05);
 }
+
 
 .hero-metrics {
   margin-top: 1.5rem;
